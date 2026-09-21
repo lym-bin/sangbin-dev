@@ -4,12 +4,13 @@ import { SiNotion } from "react-icons/si";
 import { projects } from "@/data/projects";
 import SkillChips from "@/components/SkillChips";
 import ProjectCardWithPreview from "@/components/ProjectCardWithPreview";
+import InteractiveName from "@/components/InteractiveName";
 
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-16 px-6 py-16">
       <section className="flex flex-col gap-4">
-        <h1 className="text-3xl font-semibold tracking-tight">임상빈</h1>
+        <InteractiveName name="임상빈" />
         <p className="max-w-xl text-zinc-600 dark:text-zinc-400">
           코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드
           개발자 입니다.

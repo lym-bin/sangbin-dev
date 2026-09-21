@@ -15,6 +15,7 @@ import {
   SiStyledcomponents,
   SiGooglegemini,
   SiLinux,
+  SiNextdotjs,
 } from "react-icons/si";
 
 export const techIcons: Record<string, IconType> = {
@@ -35,6 +36,8 @@ export const techIcons: Record<string, IconType> = {
   "styled-components": SiStyledcomponents,
   "gemini api": SiGooglegemini,
   linux: SiLinux,
+  nextjs: SiNextdotjs,
+  "next.js": SiNextdotjs,
 };
 
 export const techColors: Record<string, string> = {
