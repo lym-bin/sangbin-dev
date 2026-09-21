@@ -8,6 +8,10 @@ export type Project = {
     demo?: string;
     github?: string;
   };
+  troubleshooting: {
+    title: string;
+    description: string;
+  }[];
 };
 
 // 노션 포트폴리오 하드코딩 데이터
@@ -23,6 +27,18 @@ export const projects: Project[] = [
       demo: "https://my-react-app-lym-bin.vercel.app/",
       github: "https://github.com/lym-bin/my-react-app",
     },
+    troubleshooting: [
+      {
+        title: "Firestore 보안 규칙이 테스트 모드로 열려있던 문제",
+        description:
+          "배포 초반 누구나 읽기/쓰기 가능한 상태로 방치돼 있던 걸 발견. 로그인한 본인 소유의 주문 데이터만 읽고 쓸 수 있도록 규칙을 다시 작성함.",
+      },
+      {
+        title: "배포 후 상품 상세 페이지 새로고침 시 404",
+        description:
+          "React Router로 클라이언트 라우팅을 하는데, vercel이 직접 요청받은 경로는 실제 파일을 찾다가 404를 반환하던 문제. vercel.json에 모든 경로를 index.html로 돌려주는 rewrite 설정을 추가해 해결",
+      },
+    ],
   },
   {
     slug: "pawinhand",
@@ -34,6 +50,18 @@ export const projects: Project[] = [
     links: {
       demo: "https://lym-bin.github.io",
     },
+    troubleshooting: [
+      {
+        title: "AI 에이전트를 활용한 구현 속도 단축과 코드 분석 및 학습",
+        description:
+          "바닐라 JS로 공공 API를 연동하는 과정에서 막히는 부분을 AI(Gemini, Claude)로 빠르게 해결하되, 단순 복사에 그치지 않고 코드 구조와 비동기 처리 방식을 직접 뜯어보면 수정하며 학습함.",
+      },
+      {
+        title: "바닐라 JS 하드코딩의 한계",
+        description:
+          "자바스크립트만으로 DOM을 일일이 제어하다 보니 재사용성과 유지보수의 중요성을 체감. 다음 프로젝트는 React로 컴포넌트 기반 리팩토링을 하겠다는 생각으로 이어짐.",
+      },
+    ],
   },
   {
     slug: "ai-talk",
@@ -46,5 +74,17 @@ export const projects: Project[] = [
       demo: "https://ai-chat-app-hazel-one.vercel.app",
       github: "https://github.com/lym-bin/ai-chat-app",
     },
+    troubleshooting: [
+      {
+        title: "한글 입력 시 메시지 이중 전송",
+        description:
+          "한글 입력기(IME) 조합 확정용 Enter가 전송까지 발생시키던 문제, isComposing 체크를 추가해 막음",
+      },
+      {
+        title: "스트리밍 중단 시 크래시",
+        description:
+          "답변 생성 중 '중지'나 '새 대화'를 누르면 빈 배열에 접근해 에러가 나던 문제, 루프 중단 플래그와 배열 길이 가드를 추가해 해결 ",
+      },
+    ],
   },
 ];

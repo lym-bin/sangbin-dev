@@ -72,6 +72,19 @@ export default async function ProjectPage({
           </a>
         )}
       </div>
+      <div className="flex flex-col gap-4">
+        <h2 className="text-lg font-semibold">트러블 슈팅</h2>
+        <ul className="flex flex-col gap-4">
+          {project.troubleshooting.map((item) => (
+            <li key={item.title}>
+              <h3 className="font-medium">{item.title}</h3>
+              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+                {item.description}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </main>
   );
 }
