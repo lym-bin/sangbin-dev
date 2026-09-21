@@ -36,18 +36,42 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   return (
-    <div>
-      <h1>{project.title}</h1>
-      <p>{project.period}</p>
-      <p>{project.summary}</p>
+    <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-16">
+      <div className="flex flex-col gap-2">
+        <h1 className="text-2xl font-semibold tracking-tight">
+          {project.title}
+        </h1>
+        <p className="text-sm text-zinc-500">{project.period}</p>
+      </div>
 
-      <ul>
+      <p className="text-zinc-700 dark:text-zinc-300">{project.summary}</p>
+
+      <div className="flex flex-wrap gap-2">
         {project.stack.map((tech) => (
-          <li key={tech}>{tech}</li>
+          <span
+            key={tech}
+            className="rounded-full border border-black/10 px-3 py-1 text-xs dark:border-white/10"
+          >
+            {tech}
+          </span>
         ))}
-      </ul>
-      {project.links.demo && <a href={project.links.demo}>Live Demo</a>}
-      {project.links.github && <a href={project.links.github}>GitHub</a>}
-    </div>
+      </div>
+
+      <div className="flex gap-4 text-sm font-medium">
+        {project.links.demo && (
+          <a href={project.links.demo} className="underline underline-offset-4">
+            Live Demo
+          </a>
+        )}
+        {project.links.github && (
+          <a
+            href={project.links.github}
+            className="underline underline-offset-4"
+          >
+            GitHub
+          </a>
+        )}
+      </div>
+    </main>
   );
 }
