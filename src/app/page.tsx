@@ -1,5 +1,9 @@
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
+import { SiNotion } from "react-icons/si";
 import { projects } from "@/data/projects";
+import SkillChips from "@/components/SkillChips";
+
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-16 px-6 py-16">
@@ -9,28 +13,33 @@ export default function Home() {
           코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드
           개발자 입니다.
         </p>
-        <p>
+        <a
+          href="mailto:persie24@naver.com"
+          className="text-sm font-medium underline underline-offset-4"
+        >
+          persie24@naver.com
+        </a>
+        <div className="flex items-center gap-4">
           <a
-            href="mailto:persie24@naver.com"
-            className="text-sm font-medium underline underline-offset-4"
+            href="https://github.com/lym-bin"
+            aria-label="GitHub"
+            className="text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
           >
-            persie24@naver.com
+            <FaGithub size={20} />
           </a>
-        </p>
+          <a
+            href="https://app.notion.com/p/Frontend-Portfolio-b43e7e42ec0882f4951d818987cefb4d?source=copy_link"
+            aria-label="Notion"
+            className="text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+          >
+            <SiNotion size={20} />
+          </a>
+        </div>
       </section>
 
       <section className="flex flex-col gap-3">
         <h2 className="text-xl font-semibold">Skills</h2>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          언어 및 프레임워크 : JavaScript, TypeScript, React, HTML, CSS, GSAP,
-          Tailwind CSS, Java, Spring
-        </p>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          데이터베이스: MySQL, Oracle, Firebase
-        </p>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          기타: Git, Figma, PHOTO SHOP, Vite, Linux
-        </p>
+        <SkillChips />
       </section>
 
       <section className="flex flex-col gap-6">
