@@ -11,5 +11,19 @@ export default async function ProjectPage({
 
   if (!project) notFound();
 
-  return <h1>{project.title}</h1>;
+  return (
+    <div>
+      <h1>{project.title}</h1>
+      <p>{project.period}</p>
+      <p>{project.summary}</p>
+
+      <ul>
+        {project.stack.map((tech) => (
+          <li key={tech}>{tech}</li>
+        ))}
+      </ul>
+      {project.links.demo && <a href={project.links.demo}>Live Demo</a>}
+      {project.links.github && <a href={project.links.github}>GitHub</a>}
+    </div>
+  );
 }

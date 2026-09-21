@@ -8,7 +8,11 @@ export default function ProjectsPage() {
       <ul>
         {projects.map((project) => (
           <li key={project.slug}>
-            <Link href={`/projects/${project.slug}`}>{project.title}</Link>
+            <Link href={`/projects/${project.slug}`}>
+              <h2>{project.title}</h2>
+              <p>{project.period}</p>
+              <p>{project.summary}</p>
+            </Link>
           </li>
         ))}
       </ul>
