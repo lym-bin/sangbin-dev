@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TechChip from "@/components/TechChip";
 import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
@@ -17,6 +18,11 @@ export default function ProjectsPage() {
               <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
                 {project.summary}
               </p>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {project.stack.map((tech) => (
+                  <TechChip key={tech} name={tech} />
+                ))}
+              </div>
             </Link>
           </li>
         ))}

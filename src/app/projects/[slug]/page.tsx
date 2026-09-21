@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
+import TechChip from "@/components/TechChip";
 
 // generateStaticParams: 미리 이 slug들로 페이지 만들어놔(요청)
 // 빌드할 때 미리 HTML을 만들어두고 나중에 그걸 서빙함
@@ -48,12 +49,7 @@ export default async function ProjectPage({
 
       <div className="flex flex-wrap gap-2">
         {project.stack.map((tech) => (
-          <span
-            key={tech}
-            className="rounded-full border border-black/10 px-3 py-1 text-xs dark:border-white/10"
-          >
-            {tech}
-          </span>
+          <TechChip key={tech} name={tech} />
         ))}
       </div>
 

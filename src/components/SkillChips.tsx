@@ -1,5 +1,5 @@
 "use client";
-
+import { techIcons, techColors } from "@/lib/tech-icons";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -32,16 +32,20 @@ export default function SkillChips() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const chips = containerRef.current?.querySelectorAll(".skill-chip");
-    if (!chips) return;
+    const ctx = gsap.context(() => {
+      const chips = containerRef.current?.querySelectorAll(".skill-chip");
+      if (!chips) return;
 
-    gsap.from(chips, {
-      opacity: 0,
-      y: 8,
-      duration: 0.4,
-      stagger: 0.03,
-      ease: "power2.out",
-    });
+      gsap.from(chips, {
+        opacity: 0,
+        y: 8,
+        duration: 0.4,
+        stagger: 0.03,
+        ease: "power2.out",
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   const handleEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
@@ -60,16 +64,23 @@ export default function SkillChips() {
             {group.category}
           </h3>
           <div className="flex flex-wrap gap-2">
-            {group.skills.map((skill) => (
-              <span
-                key={skill}
-                onMouseEnter={handleEnter}
-                onMouseLeave={handleLeave}
-                className="skill-chip inline-block rounded-full border border-black/10 px-3 py-1 text-xs dark:border-white/10"
-              >
-                {skill}
-              </span>
-            ))}
+            {group.skills.map((skill) => {
+              const key = skill.trim().toLowerCase();
+              const Icon = techIcons[key];
+              const color = techColors[key];
+
+              return (
+                <span
+                  key={skill}
+                  onMouseEnter={handleEnter}
+                  onMouseLeave={handleLeave}
+                  className="skill-chip inline-flex items-center gap-1 rounded-full border border-black/10 px-3 py-1 text-xs dark:border-white/10"
+                >
+                  {Icon && <Icon size={12} style={{ color }} />}
+                  {skill}
+                </span>
+              );
+            })}
           </div>
         </div>
       ))}
