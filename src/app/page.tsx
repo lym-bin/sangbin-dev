@@ -11,7 +11,7 @@ export default function Home() {
     <main className="mx-auto flex max-w-3xl flex-col gap-16 px-6 py-16">
       <section className="flex flex-col gap-4">
         <InteractiveName name="임상빈" />
-        <p className="max-w-xl text-zinc-600 dark:text-zinc-400">
+        <p className="max-w-xl text-balance break-keep text-zinc-600 dark:text-zinc-400">
           코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드
           개발자 입니다.
         </p>

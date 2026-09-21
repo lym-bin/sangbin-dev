@@ -45,7 +45,7 @@ export default function InteractiveName({ name }: { name: string }) {
       <h1 className="cursor-default text-3xl font-semibold tracking-tight">
         {name}
       </h1>
-      <div className="pointer-events-none absolute bottom-full left-0 z-10 mb-3 flex flex-wrap gap-2">
+      <div className="pointer-events-none absolute bottom-full left-0 z-10 mb-3 hidden flex-wrap gap-2 md:flex">
         {keywords.map((keyword) => {
           const key = keyword.trim().toLowerCase();
           const Icon = techIcons[key];

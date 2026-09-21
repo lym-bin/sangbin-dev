@@ -45,7 +45,9 @@ export default async function ProjectPage({
         <p className="text-sm text-zinc-500">{project.period}</p>
       </div>
 
-      <p className="text-zinc-700 dark:text-zinc-300">{project.summary}</p>
+      <p className="text-pretty break-keep text-zinc-700 dark:text-zinc-300">
+        {project.summary}
+      </p>
 
       <div className="flex flex-wrap gap-2">
         {project.stack.map((tech) => (
@@ -74,7 +76,7 @@ export default async function ProjectPage({
           {project.troubleshooting.map((item) => (
             <li key={item.title}>
               <h3 className="font-medium">{item.title}</h3>
-              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="mt-1 text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
                 {item.description}
               </p>
             </li>
