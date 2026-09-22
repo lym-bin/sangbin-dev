@@ -49,6 +49,13 @@ export default async function ProjectPage({
         {project.summary}
       </p>
 
+      <div className="flex flex-col gap-2">
+        <h2 className="text-lg font-semibold">Motivation</h2>
+        <p className="text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
+          {project.motivation}
+        </p>
+      </div>
+
       <div className="flex flex-wrap gap-2">
         {project.stack.map((tech) => (
           <TechChip key={tech} name={tech} />
@@ -69,16 +76,34 @@ export default async function ProjectPage({
             GitHub
           </a>
         )}
+        {project.links.figma && (
+          <a
+            href={project.links.figma}
+            className="underline underline-offset-4"
+          >
+            Figma
+          </a>
+        )}
       </div>
       <div className="flex flex-col gap-4">
         <h2 className="text-lg font-semibold">트러블 슈팅</h2>
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-6">
           {project.troubleshooting.map((item) => (
             <li key={item.title}>
               <h3 className="font-medium">{item.title}</h3>
               <p className="mt-1 text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
                 {item.description}
               </p>
+              {item.codeBlocks?.map((block) => (
+                <div key={block.code} className="mt-2">
+                  {block.label && (
+                    <p className="mb-1 text-xs text-zinc-500">{block.label}</p>
+                  )}
+                  <pre className="overflow-x-auto rounded-lg bg-zinc-100 p-4 text-xs dark:bg-zinc-900">
+                    <code className="font-mono">{block.code}</code>
+                  </pre>
+                </div>
+              ))}
             </li>
           ))}
         </ul>
