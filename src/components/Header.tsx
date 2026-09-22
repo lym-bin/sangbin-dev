@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -18,6 +19,9 @@ export default function Header() {
         >
           Projects
         </Link>
+        <div className="ml-auto">
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
   );
