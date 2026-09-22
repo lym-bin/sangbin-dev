@@ -11,6 +11,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PrintButton from "@/components/PrintButton";
 import ContactForm from "@/components/ContactForm";
 import TypingIntro from "@/components/TypingIntro";
+import SectionNav from "@/components/SectionNav";
 
 export default function Home() {
   return (
@@ -59,7 +60,7 @@ export default function Home() {
       </HomeIntro>
 
       <ScrollReveal>
-        <section className="flex flex-col gap-6">
+        <section id="projects" className="flex flex-col gap-6">
           <div className="flex items-baseline justify-between">
             <h2 className="text-xl font-semibold">Projects</h2>
             <Link
@@ -80,13 +81,13 @@ export default function Home() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <section className="flex flex-col gap-3">
+        <section id="skills" className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold">Skills</h2>
           <SkillChips />
         </section>
       </ScrollReveal>
 
-      <section className="flex flex-col gap-6">
+      <section id="resume" className="flex flex-col gap-6">
         <h2 className="text-xl font-semibold">Resume</h2>
 
         <div className="flex flex-col gap-2">
@@ -125,7 +126,7 @@ export default function Home() {
         </div>
       </section>
       <ScrollReveal>
-        <section className="print:hidden flex flex-col gap-4">
+        <section id="contact" className="print:hidden flex flex-col gap-4">
           <h2 className="text-xl font-semibold">Contact</h2>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             궁금한 점이나 하고 싶으신 말씀은 편하게 남겨주세요. 최대한 빠르게
@@ -134,6 +135,7 @@ export default function Home() {
           <ContactForm />
         </section>
       </ScrollReveal>
+      <SectionNav />
     </main>
   );
 }

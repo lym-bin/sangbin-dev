@@ -44,4 +44,8 @@ body {
   section {
     break-inside: avoid;
   }
+  main {
+    gap: 0.75em !important;
+    padding: 0.5rem 0 !important;
+  }
 }
