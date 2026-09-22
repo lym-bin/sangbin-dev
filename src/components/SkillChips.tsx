@@ -5,7 +5,7 @@ import gsap from "gsap";
 
 const skillGroups = [
   {
-    category: "실무 사용",
+    category: "프로젝트 사용",
     skills: [
       "HTML",
       "CSS",
@@ -18,7 +18,7 @@ const skillGroups = [
   },
 
   {
-    category: "프로젝트 경험",
+    category: "배포 및 기타, 디자인 경험",
     skills: ["Firebase", "Figma", "Git", "Vite", "Next.js"],
   },
 ];

@@ -10,6 +10,7 @@ import HomeIntro from "@/components/HomeIntro";
 import ScrollReveal from "@/components/ScrollReveal";
 import PrintButton from "@/components/PrintButton";
 import ContactForm from "@/components/ContactForm";
+import TypingIntro from "@/components/TypingIntro";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
             />
             <InteractiveName name="임상빈" />
           </div>
+          <TypingIntro />
           <p className="intro-item max-w-xl text-balance break-keep text-zinc-600 dark:text-zinc-400">
             코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드
             개발자 입니다.
