@@ -9,6 +9,7 @@ import InteractiveName from "@/components/InteractiveName";
 import HomeIntro from "@/components/HomeIntro";
 import ScrollReveal from "@/components/ScrollReveal";
 import PrintButton from "@/components/PrintButton";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -121,6 +122,16 @@ export default function Home() {
           </ul>
         </div>
       </section>
+      <ScrollReveal>
+        <section className="print:hidden flex flex-col gap-4">
+          <h2 className="text-xl font-semibold">Contact</h2>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            궁금한 점이나 하고 싶으신 말씀은 편하게 남겨주세요. 최대한 빠르게
+            확인하겠습니다.
+          </p>
+          <ContactForm />
+        </section>
+      </ScrollReveal>
     </main>
   );
 }
