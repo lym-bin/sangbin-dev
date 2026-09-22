@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { SiNotion } from "react-icons/si";
 import { projects } from "@/data/projects";
@@ -13,7 +14,14 @@ export default function Home() {
     <main className="mx-auto flex max-w-3xl flex-col gap-16 px-6 py-16">
       <HomeIntro>
         <section className="flex flex-col gap-4">
-          <div className="intro-item">
+          <div className="intro-item flex items-center gap-4">
+            <Image
+              src="/profile.png"
+              alt="임상빈"
+              width={88}
+              height={88}
+              className="rounded-2xl object-cover"
+            />
             <InteractiveName name="임상빈" />
           </div>
           <p className="intro-item max-w-xl text-balance break-keep text-zinc-600 dark:text-zinc-400">
