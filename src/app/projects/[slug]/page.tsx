@@ -92,8 +92,19 @@ export default async function ProjectPage({
             <li key={item.title}>
               <h3 className="font-medium">{item.title}</h3>
               <p className="mt-1 text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
-                {item.description}
+                <span className="font-semibold text-zinc-500">문제: </span>
+                {item.problem}
               </p>
+              <p className="mt-1 text-pretty break-keep text-sm text-zinc-700 dark:text-zinc-300">
+                <span className="font-semibold text-zinc-500">해결 결과: </span>
+                {item.solution}
+              </p>
+              {item.lesson && (
+                <p className="mt-1 text-pretty break-keep text-sm text-zinc-500 dark:text-zinc-500">
+                  <span className="font-semibold">배운 점: </span>
+                  {item.lesson}
+                </p>
+              )}
               {item.codeBlocks?.map((block) => (
                 <div key={block.code} className="mt-2">
                   {block.label && (
