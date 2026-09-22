@@ -4,10 +4,7 @@ import type { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <Link
-      href={`/projects/${project.slug}`}
-      className="group block rounded-lg border border-black/10 p-5 transition-transform duration-200 hover:scale-[1.02] hover:bg-black/2 dark:border-white/10 dark:hover:bg-white/4"
-    >
+    <div className="group rounded-lg border border-black/10 p-5 transition-transform duration-200 hover:scale-[1.02] hover:bg-black/2 dark:border-white/10 dark:hover:bg-white/4">
       <h3 className="font-medium transition-colors group-hover:text-black dark:group-hover:text-white">
         {project.title}
       </h3>
@@ -20,6 +17,24 @@ export default function ProjectCard({ project }: { project: Project }) {
           <TechChip key={tech} name={tech} />
         ))}
       </div>
-    </Link>
+      <div className="mt-3 flex gap-3 text-sm font-medium">
+        {project.links.demo && (
+          <a
+            href={project.links.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/10 dark:hover:bg-white/10"
+          >
+            Live Demo
+          </a>
+        )}
+        <Link
+          href={`/projects/${project.slug}`}
+          className="rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/10 dark:hover:bg-white/10"
+        >
+          상세 보기
+        </Link>
+      </div>
+    </div>
   );
 }
