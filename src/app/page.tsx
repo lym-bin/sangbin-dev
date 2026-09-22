@@ -8,6 +8,7 @@ import ProjectCardWithPreview from "@/components/ProjectCardWithPreview";
 import InteractiveName from "@/components/InteractiveName";
 import HomeIntro from "@/components/HomeIntro";
 import ScrollReveal from "@/components/ScrollReveal";
+import PrintButton from "@/components/PrintButton";
 
 export default function Home() {
   return (
@@ -49,6 +50,7 @@ export default function Home() {
             >
               <SiNotion size={20} />
             </a>
+            <PrintButton />
           </div>
         </section>
       </HomeIntro>
@@ -59,7 +61,7 @@ export default function Home() {
             <h2 className="text-xl font-semibold">Projects</h2>
             <Link
               href="/projects"
-              className="text-sm font-medium underline underline-offset-4"
+              className="print:hidden text-sm font-medium underline underline-offset-4"
             >
               전체 보기
             </Link>

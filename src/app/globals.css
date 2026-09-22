@@ -24,3 +24,24 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* PDF */
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+  .intro-item,
+  .scroll-reveal,
+  .skill-chip {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .name-tag {
+    display: none !important;
+  }
+  /* SKILL쪽 다음 단락으로 */
+  section {
+    break-inside: avoid;
+  }
+}

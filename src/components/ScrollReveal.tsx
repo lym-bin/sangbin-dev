@@ -28,5 +28,9 @@ export default function ScrollReveal({ children }: { children: ReactNode }) {
     return () => ctx.revert();
   }, []);
 
-  return <div ref={ref}>{children}</div>;
+  return (
+    <div ref={ref} className="scroll-reveal">
+      {children}
+    </div>
+  );
 }
