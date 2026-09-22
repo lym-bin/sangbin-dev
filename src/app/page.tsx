@@ -5,44 +5,73 @@ import { projects } from "@/data/projects";
 import SkillChips from "@/components/SkillChips";
 import ProjectCardWithPreview from "@/components/ProjectCardWithPreview";
 import InteractiveName from "@/components/InteractiveName";
+import HomeIntro from "@/components/HomeIntro";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-16 px-6 py-16">
-      <section className="flex flex-col gap-4">
-        <InteractiveName name="임상빈" />
-        <p className="max-w-xl text-balance break-keep text-zinc-600 dark:text-zinc-400">
-          코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드
-          개발자 입니다.
-        </p>
-        <a
-          href="mailto:persie24@naver.com"
-          className="text-sm font-medium underline underline-offset-4"
-        >
-          persie24@naver.com
-        </a>
-        <div className="flex items-center gap-4">
+      <HomeIntro>
+        <section className="flex flex-col gap-4">
+          <div className="intro-item">
+            <InteractiveName name="임상빈" />
+          </div>
+          <p className="intro-item max-w-xl text-balance break-keep text-zinc-600 dark:text-zinc-400">
+            코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드
+            개발자 입니다.
+          </p>
           <a
-            href="https://github.com/lym-bin"
-            aria-label="GitHub"
-            className="text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+            href="mailto:persie24@naver.com"
+            className="intro-item text-sm font-medium underline underline-offset-4"
           >
-            <FaGithub size={20} />
+            persie24@naver.com
           </a>
-          <a
-            href="https://app.notion.com/p/Frontend-Portfolio-b43e7e42ec0882f4951d818987cefb4d?source=copy_link"
-            aria-label="Notion"
-            className="text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
-          >
-            <SiNotion size={20} />
-          </a>
-        </div>
-      </section>
+          <div className="intro-item flex items-center gap-4">
+            <a
+              href="https://github.com/lym-bin"
+              aria-label="GitHub"
+              className="text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+            >
+              <FaGithub size={20} />
+            </a>
+            <a
+              href="https://app.notion.com/p/Frontend-Portfolio-b43e7e42ec0882f4951d818987cefb4d?source=copy_link"
+              aria-label="Notion"
+              className="text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+            >
+              <SiNotion size={20} />
+            </a>
+          </div>
+        </section>
+      </HomeIntro>
 
-      <section className="flex flex-col gap-3">
-        <h2 className="text-xl font-semibold">Skills</h2>
-        <SkillChips />
-      </section>
+      <ScrollReveal>
+        <section className="flex flex-col gap-6">
+          <div className="flex items-baseline justify-between">
+            <h2 className="text-xl font-semibold">Projects</h2>
+            <Link
+              href="/projects"
+              className="text-sm font-medium underline underline-offset-4"
+            >
+              전체 보기
+            </Link>
+          </div>
+          <ul className="flex flex-col gap-4">
+            {projects.map((project) => (
+              <li key={project.slug}>
+                <ProjectCardWithPreview project={project} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <section className="flex flex-col gap-3">
+          <h2 className="text-xl font-semibold">Skills</h2>
+          <SkillChips />
+        </section>
+      </ScrollReveal>
 
       <section className="flex flex-col gap-6">
         <h2 className="text-xl font-semibold">Resume</h2>
@@ -81,25 +110,6 @@ export default function Home() {
             </li>
           </ul>
         </div>
-      </section>
-
-      <section className="flex flex-col gap-6">
-        <div className="flex items-baseline justify-between">
-          <h2 className="text-xl font-semibold">Projects</h2>
-          <Link
-            href="/projects"
-            className="text-sm font-medium underline underline-offset-4"
-          >
-            전체 보기
-          </Link>
-        </div>
-        <ul className="flex flex-col gap-4">
-          {projects.map((project) => (
-            <li key={project.slug}>
-              <ProjectCardWithPreview project={project} />
-            </li>
-          ))}
-        </ul>
       </section>
     </main>
   );
