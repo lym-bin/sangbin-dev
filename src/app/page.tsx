@@ -1,7 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaGithub } from "react-icons/fa";
 import { SiNotion } from "react-icons/si";
+import {
+  FaGithub,
+  FaGraduationCap,
+  FaCertificate,
+  FaBriefcase,
+} from "react-icons/fa";
 import { projects } from "@/data/projects";
 import SkillChips from "@/components/SkillChips";
 import ProjectCardWithPreview from "@/components/ProjectCardWithPreview";
@@ -90,37 +95,84 @@ export default function Home() {
       <section id="resume" className="flex flex-col gap-6">
         <h2 className="text-xl font-semibold">Resume</h2>
 
-        <div className="flex flex-col gap-2">
-          <h3 className="text-sm font-semibold text-zinc-500">학력</h3>
-          <ul className="flex flex-col gap-1 text-sm">
-            <li>2013.02 ~ 2017.02 [장안대학교 행정법률과 졸업]</li>
-            <li>2019.10 ~ 2021.04 [육군훈련소 조교/행정병 만기 제대]</li>
-            <li>
-              2021.08 ~ 2022.02 [구디아카데미 공공API 자바/스프링 풀스택 과정
-              수료]
+        <div className="flex flex-col gap-3 rounded-lg bg-zinc-50 p-4 dark:bg-zinc-900">
+          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-500">
+            <FaGraduationCap />
+            학력 및 경험
+          </h3>
+          <ul className="flex flex-col gap-2 text-sm">
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2013.02 ~ 2017.02
+              </span>
+              [장안대학교 행정법률과 졸업]
             </li>
-            <li>2022.10 ~ 2022.10 [KT DS 데이터 분석을 위한 SQL 활용 수료]</li>
-            <li>
-              2026.06 ~ 2026.11 [MBC 아카데미 AI활용 반응형 UI/UX 웹퍼블리셔
-              전문가 양성과정(진행중)]
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2019.10 ~ 2021.04
+              </span>
+              [육군훈련소 조교/행정병 만기 제대]
+            </li>
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2021.08 ~ 2022.02
+              </span>
+              [구디아카데미 공공API 자바/스프링 풀스택 과정 수료]
+            </li>
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2022.10 ~ 2022.10
+              </span>
+              [KT DS 데이터 분석을 위한 SQL 활용 수료]
+            </li>
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2023.02 ~ 2023.07
+              </span>
+              [한국방송통신대학교 컴퓨터과학과 중퇴]
+            </li>
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2026.06 ~ 2026.11
+              </span>
+              [MBC 아카데미 AI활용 반응형 UI/UX 웹퍼블리셔 전문가
+              양성과정(진행중)]
             </li>
           </ul>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <h3 className="text-sm font-semibold text-zinc-500">자격증</h3>
-          <ul className="flex flex-col gap-1 text-sm">
-            <li>2013.09 MOS 파워포인트</li>
-            <li>2014.08 컴퓨터활용능력 2급</li>
+        <div className="flex flex-col gap-3 rounded-lg bg-zinc-50 p-4 dark:bg-zinc-900">
+          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-500">
+            <FaCertificate />
+            자격증
+          </h3>
+          <ul className="flex flex-col gap-2 text-sm">
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2013.09
+              </span>
+              MOS 파워포인트
+            </li>
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2014.08
+              </span>
+              컴퓨터활용능력 2급
+            </li>
           </ul>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <h3 className="text-sm font-semibold text-zinc-500">경력</h3>
-          <ul className="flex flex-col gap-1 text-sm">
-            <li>
-              2022.03 ~ 2022.08 (주) 디투엘 - Java/Spring/Nexacro 기반 차세대 SI
-              프로젝트 참여
+        <div className="flex flex-col gap-3 rounded-lg bg-zinc-50 p-4 dark:bg-zinc-900">
+          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-500">
+            <FaBriefcase />
+            경력
+          </h3>
+          <ul className="flex flex-col gap-2 text-sm">
+            <li className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                2022.03 ~ 2022.08
+              </span>
+              (주) 디투엘 - Java/Spring/Nexacro 기반 차세대 SI 프로젝트 참여
             </li>
           </ul>
         </div>
