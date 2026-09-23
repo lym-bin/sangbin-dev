@@ -34,7 +34,7 @@ export default function ProjectGallery({
           <span className="text-xs font-semibold uppercase tracking-wide text-zinc-400">
             화면 미리보기
           </span>
-          <div className="grid grid-cols-6 gap-2">
+          <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
             {images.map((src) => (
               <button
                 key={src}

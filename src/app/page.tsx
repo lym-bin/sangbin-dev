@@ -23,7 +23,7 @@ export default function Home() {
     <main className="mx-auto flex max-w-3xl flex-col gap-16 px-6 py-16">
       <HomeIntro>
         <section className="flex flex-col gap-4">
-          <div className="intro-item flex items-center gap-4">
+          <div className="intro-item flex flex-wrap items-center gap-4">
             <Image
               src="/profile.png"
               alt="임상빈"
