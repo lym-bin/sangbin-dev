@@ -2,15 +2,18 @@ export type Project = {
   slug: string;
   title: string;
   period: string;
+  teamType: string;
   summary: string;
   motivation: string;
   stack: string[];
   thumbnail?: string;
+  gallery?: string[];
   links: {
     demo?: string;
     github?: string;
     figma?: string;
   };
+  features: string[];
   troubleshooting: {
     title: string;
     problem: string;
@@ -21,6 +24,7 @@ export type Project = {
       code: string;
     }[];
   }[];
+  review?: string;
 };
 
 // 노션 포트폴리오 하드코딩 데이터
@@ -31,14 +35,31 @@ export const projects: Project[] = [
     period: "2026.07 ~ 2026.09",
     summary:
       "모던 HTML/CSS로 만들었던 미니멀 쇼핑몰 프로토타입을 React + TypeScript + Firebase로 전면 재 구축한 개인 프로젝트",
+    teamType: "개인 프로젝트",
     motivation:
       "HTML/CSS로 마크업을 하고 바닐라 JS로 정적 화면만 만들다 보니 상태 관리와 재사용성에 한계를 느껴서, 상품 목록/필터 → 상세 → 장바구니 → 주문/결제 → 로그인/마이페이지까지 이어지는 실제 쇼핑몰 플로우를 처음부터 끝까지 React + TypeScript로 직접 구현해보고 싶기도 했고 끝까지 완성된 포트폴리오를 만들어보고 싶었습니다..",
     stack: ["React", "TypeScript", "Firebase", "Vite", "GSAP"],
     thumbnail: "/projects/objet-b-web.gif",
+    gallery: [
+      "/projects/objet-b-web-1.png",
+      "/projects/objet-b-web-2.png",
+      "/projects/objet-b-web-3.png",
+      "/projects/objet-b-web-4.png",
+      "/projects/objet-b-web-5.png",
+    ],
     links: {
       demo: "https://my-react-app-lym-bin.vercel.app/",
       github: "https://github.com/lym-bin/my-react-app",
     },
+    features: [
+      "상품 목록 카테고리/색상/사이즈 필터링, 정렬, 더보기 페이지네이션, 검색",
+      "상품 상세 페이지 - 색상/사이즈 옵션, 사이즈 가이드, 비슷한 상품/후기 추천",
+      "장바구니 (옵션별 개별 관리, 수량 조절, 새로고침해도 유지)",
+      "배송지 등록/선택, 결제수단 선택, 주문 생성 (Firestore 저장)",
+      "이메일/비밀번호 로그인, 회원가입, 비밀번호 재설정",
+      "마이페이지 - 주문내역 조회, 최근 본 상품, 닉네임/비밀번호 수정",
+      "반응형 다크테마 UI, GSAP 스크롤 애니메이션",
+    ],
     troubleshooting: [
       {
         title: "Firestore 보안 규칙이 테스트 모드로 열려있던 문제",
@@ -105,23 +126,38 @@ export const projects: Project[] = [
         ],
       },
     ],
+    review:
+      "원래는 이미지 클릭하면 모달 띄우는 정도로 시작했는데 하다 보니 장바구니, 로그인, 주문 흐름까지 다 붙이게 됐습니다. Firebase로 인증/DB 연동해보면서 실제 서비스처럼 상태 관리하는 게 생각보다 까다로웠고, 특히 옵션(색상/사이즈)별로 장바구니 아이템을 분리해서 관리하는 부분이 고민이 많았습니다.",
   },
   {
     slug: "pawinhand",
     title: "포인핸드 웹 사이트 리뉴얼",
     period: "2026.06 ~ 2026.08",
+    teamType: "개인 프로젝트",
     summary:
       "운영중인 유기동물 입양 사이트 '포인핸드'를 리뉴얼한 개인 프로젝트",
     motivation:
       "공백기 이후 3년만에 다시 개발을 시작하였고, 기초의 중요성과 끊임 없는 학습의 중요성을 느꼈습니다. 과거 구글링과 Stack Overflow에 의존하면서 정보를 찾아가면서 개발을 했던 방식에서 벗어나, AI 에이전트를 적극 활용하며 복기하고 디버깅하고 다투기도하고 검증하면서 바닐라JS의 동작원리를 깊이 있게 학습을 하였습니다. 비동기 API통신을 주제로 삼고 뭘 만들어볼까 하다가 유기동물에 대한 관심이 컷었고 유기된 고양이를 입양 했었던 추억도 있어서 리뉴얼을 해보고 싶었습니다. ",
     stack: ["HTML", "CSS", "VanilaJS", "Figma", "PHOTO SHOP"],
     thumbnail: "/projects/pawinhand.gif",
+    gallery: [
+      "/projects/pawinhand-1.png",
+      "/projects/pawinhand-2.png",
+      "/projects/pawinhand-3.png",
+    ],
     links: {
       demo: "https://lym-bin.github.io",
       github: "https://github.com/lym-bin/lym-bin.github.io",
       figma:
         "https://www.figma.com/design/3sjbtMMfkh7PhoGhbC1fd2/포인핸드-리뉴얼-와이어-프레임?node-id=0-1",
     },
+    features: [
+      "히어로 배너, 지역별 추천동물 필터, 베스트 후기, 유기동물 현황 미니 대시보드",
+      "실시간 키워드 검색, 상태 필터, 정렬, 더보기 페이지네이션, 찜하기",
+      "공고번호 기반 상세 조회, 이미지 갤러리, 성격/입양 절차, 댓글",
+      "보호소 카카오맵 마커(주소→좌표 지오코딩), 조건 필터 모달",
+      "회원가입/로그인(중복확인·비밀번호 규칙 검증), 체험 계정 로그인",
+    ],
     troubleshooting: [
       {
         title: "AI 에이전트를 활용한 구현 속도 단축과 코드 분석 및 학습",
@@ -154,7 +190,8 @@ export const projects: Project[] = [
         title: "공공API가 응답하지 않는 현상",
         problem:
           "어제까지 정상적으로 API데이터들이 잘 불러와졌으나 다음날 데이터통신이 에러가 나옴 → Console에는 어떠한 오류도 안뜸 → Network 탭 확인 결과 pending 상태 무한 대기. 1차로 트래픽, 서버, 인증키 문제인 줄 알았지만 아니었음.",
-        solution: "API 엔드포인트가 http로 되어있던 걸 https로 수정 후 해결 완료.",
+        solution:
+          "API 엔드포인트가 http로 되어있던 걸 https로 수정 후 해결 완료.",
         lesson:
           "에러 메시지가 안 뜨는 네트워크 문제는 Network 탭에서 pending 상태부터 확인해야 하고, http/https 프로토콜 불일치 같은 기본적인 것도 놓치기 쉽다는 걸 배움.",
       },
@@ -203,21 +240,37 @@ const [shelters, animals] = await Promise.all([
         ],
       },
     ],
+    review:
+      "바닐라 JS로 실제 서비스 하나를 처음부터 끝까지 완성해보니, 프레임워크 없이도 상태 관리와 캐싱 전략을 신경 써야 한다는 걸 체감했습니다. 특히 백엔드 없이 localStorage/sessionStorage만으로 로그인과 데이터 캐시를 구현하면서, '서버가 있었다면 이렇게 하지 않았을 것'이라는 지점들을 명확히 인지하고 문서화하려고 했습니다. 공공 API의 스펙 한계를 프론트엔드에서 우회하는 경험도 많이 배웠습니다.",
   },
   {
     slug: "ai-talk",
     title: "AI Talk / 챗봇 서비스",
     period: "2026.08 ~ 2026.09",
+    teamType: "개인 프로젝트",
     summary:
       "사용자와 1:1로 대화하며 AI 답변이 실시간으로 스트리밍 출력되는 챗봇 웹앱",
     motivation:
       "AI를 많이 써보다 보니 AI특유의 '환각'과 오류 정보를 어떻게 하면 없애는 걸까 호기심에 토이프로젝트로 API를 연동해 간단한 1:1 대화, 나만의 일기를 만들어 봤습니다.",
     stack: ["React", "TypeScript", "Vite", "Gemini API", "Styled-components"],
     thumbnail: "/projects/ai-talk.gif",
+    gallery: [
+      "/projects/ai-talk-1.png",
+      "/projects/ai-talk-2.png",
+      "/projects/ai-talk-3.png",
+    ],
     links: {
       demo: "https://ai-chat-app-hazel-one.vercel.app",
       github: "https://github.com/lym-bin/ai-chat-app",
     },
+    features: [
+      "채팅: 메시지를 보내면 답변이 실시간으로 조금씩 채워짐",
+      "이전 대화 기억: 앞에서 나눈 내용을 이어서 대화",
+      "답변 멈추기: 답변이 나오는 중에 전송 버튼이 중지 버튼으로 전환",
+      "새 대화: 헤더 버튼으로 대화를 처음부터 다시 시작",
+      "오늘의 일기 모드: 일기를 쓰면 공감과 위로, 짧은 조언을 답으로 반환",
+      "일기 저장: 일기와 답변을 날짜별로 저장, '지난 일기' 목록에서 다시 조회",
+    ],
     troubleshooting: [
       {
         title: "한글 입력 시 메시지 이중 전송",
@@ -236,5 +289,7 @@ const [shelters, animals] = await Promise.all([
           "비동기 스트리밍 중간에 사용자가 상태를 바꿀 수 있는 액션(중지, 새 대화)이 있다면, 그 타이밍에 대한 가드를 항상 고려해야 한다는 걸 배움.",
       },
     ],
+    review:
+      "짧은 기간 안에 실제 서비스처럼 동작하는 챗봇을 만들어보면서, 스트리밍 응답이나 한글 입력 같은 디테일이 생각보다 까다롭다는 걸 알게 됐습니다. AI API를 붙이는 것 자체보다, 사용자가 답변 중간에 상태를 바꾸는 예외 상황들을 다 챙기는 게 진짜 어려운 부분이라는 걸 배운 프로젝트였습니다.",
   },
 ];

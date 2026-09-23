@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import TechChip from "@/components/TechChip";
+import ProjectGallery from "@/components/ProjectGallery";
 
 // generateStaticParams: 미리 이 slug들로 페이지 만들어놔(요청)
 // 빌드할 때 미리 HTML을 만들어두고 나중에 그걸 서빙함
@@ -38,11 +39,23 @@ export default async function ProjectPage({
 
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-16">
+      <ProjectGallery
+        title={project.title}
+        thumbnail={project.thumbnail}
+        gallery={project.gallery}
+      />
       <div className="flex flex-col gap-2">
         <h1 className="text-2xl font-semibold tracking-tight">
           {project.title}
         </h1>
-        <p className="text-sm text-zinc-500">{project.period}</p>
+        <p className="text-sm text-zinc-500">
+          {project.period} · {project.teamType}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {project.stack.map((tech) => (
+            <TechChip key={tech} name={tech} />
+          ))}
+        </div>
       </div>
 
       <p className="text-pretty break-keep text-zinc-700 dark:text-zinc-300">
@@ -54,12 +67,6 @@ export default async function ProjectPage({
         <p className="text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
           {project.motivation}
         </p>
-      </div>
-
-      <div className="flex flex-wrap gap-2">
-        {project.stack.map((tech) => (
-          <TechChip key={tech} name={tech} />
-        ))}
       </div>
 
       <div className="flex gap-4 text-sm font-medium">
@@ -84,6 +91,16 @@ export default async function ProjectPage({
             Figma
           </a>
         )}
+      </div>
+      <div className="flex flex-col gap-2">
+        <h2 className="text-lg font-semibold">주요 기능</h2>
+        <ul className="list-disc pl-5 text-sm text-zinc-600 marker:text-zinc-400 dark:text-zinc-400">
+          {project.features.map((feature) => (
+            <li key={feature} className="text-pretty break-keep">
+              {feature}
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="flex flex-col gap-4">
         <h2 className="text-lg font-semibold">트러블 슈팅</h2>
@@ -119,6 +136,14 @@ export default async function ProjectPage({
           ))}
         </ul>
       </div>
+      {project.review && (
+        <div className="flex flex-col gap-2">
+          <h2 className="text-lg font-semibold">느낀 점</h2>
+          <p className="text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
+            {project.review}
+          </p>
+        </div>
+      )}
     </main>
   );
 }
