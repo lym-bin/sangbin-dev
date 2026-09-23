@@ -43,16 +43,16 @@ export default function Home() {
             <a
               href="https://github.com/lym-bin"
               aria-label="GitHub"
-              className="text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+              className="rounded-full border border-black/10 p-2 text-zinc-600 transition-colors hover:bg-black/5 hover:text-zinc-950 dark:border-white/15 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-zinc-50"
             >
-              <FaGithub size={20} />
+              <FaGithub size={30} />
             </a>
             <a
               href="https://app.notion.com/p/Frontend-Portfolio-b43e7e42ec0882f4951d818987cefb4d?source=copy_link"
               aria-label="Notion"
-              className="text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+              className="rounded-full border border-black/10 p-2 text-zinc-600 transition-colors hover:bg-black/5 hover:text-zinc-950 dark:border-white/15 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-zinc-50"
             >
-              <SiNotion size={20} />
+              <SiNotion size={30} />
             </a>
             <PrintButton />
           </div>

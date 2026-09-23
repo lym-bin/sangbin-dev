@@ -2,8 +2,10 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import TechChip from "@/components/TechChip";
 import ProjectGallery from "@/components/ProjectGallery";
-import { FaLightbulb } from "react-icons/fa";
+import { FaGithub, FaLightbulb } from "react-icons/fa";
 import ScrollHint from "@/components/ScrollHint";
+import { FiExternalLink } from "react-icons/fi";
+import { SiFigma } from "react-icons/si";
 
 // generateStaticParams: 미리 이 slug들로 페이지 만들어놔(요청)
 // 빌드할 때 미리 HTML을 만들어두고 나중에 그걸 서빙함
@@ -90,25 +92,37 @@ export default async function ProjectPage({
         </p>
       </div>
 
-      <div className="flex gap-4 text-sm font-medium">
+      <div className="flex flex-wrap gap-4 text-sm font-medium">
         {project.links.demo && (
-          <a href={project.links.demo} className="underline underline-offset-4">
+          <a
+            href={project.links.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+          >
+            <FiExternalLink size={14} />
             Live Demo
           </a>
         )}
         {project.links.github && (
           <a
             href={project.links.github}
-            className="underline underline-offset-4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
           >
+            <FaGithub size={14} />
             GitHub
           </a>
         )}
         {project.links.figma && (
           <a
             href={project.links.figma}
-            className="underline underline-offset-4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
           >
+            <SiFigma size={14} />
             Figma
           </a>
         )}
