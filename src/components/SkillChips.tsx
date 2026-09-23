@@ -69,7 +69,7 @@ export default function SkillChips() {
                   key={skill}
                   onMouseEnter={handleEnter}
                   onMouseLeave={handleLeave}
-                  className="skill-chip inline-flex items-center gap-1 rounded-full border border-black/10 px-3 py-1 text-xs dark:border-white/10"
+                  className="skill-chip inline-flex items-center gap-1 rounded-full border border-black/10 bg-zinc-50 px-3 py-1 text-xs dark:border-white/15 dark:bg-zinc-900"
                 >
                   {Icon && <Icon size={12} style={{ color }} />}
                   {skill}
