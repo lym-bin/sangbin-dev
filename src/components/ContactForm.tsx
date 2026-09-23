@@ -42,32 +42,32 @@ export default function ContactForm() {
         type="text"
         placeholder="이름"
         required
-        className="rounded-lg border border-black/10 bg-transparent px-3 py-2 text-sm dark:border-white/10"
+        className="rounded-lg border border-black/10 bg-zinc-50 px-3 py-2 text-sm dark:border-white/15 dark:bg-zinc-900"
       />
       <input
         name="email"
         type="email"
         placeholder="답장받을 이메일"
         required
-        className="rounded-lg border border-black/10 bg-transparent px-3 py-2 text-sm dark:border-white/10"
+        className="rounded-lg border border-black/10 bg-zinc-50 px-3 py-2 text-sm dark:border-white/15 dark:bg-zinc-900"
       />
       <textarea
         name="message"
         placeholder="메시지"
         required
         rows={4}
-        className="rounded-lg border border-black/10 bg-transparent px-3 py-2 text-sm dark:border-white/10"
+        className="rounded-lg border border-black/10 bg-zinc-50 px-3 py-2 text-sm dark:border-white/15 dark:bg-zinc-900"
       />
       <button
         type="submit"
         disabled={status === "sending"}
-        className="self-start rounded-full border border-black/10 px-4 py-2 text-sm font-medium transition-colors hover:bg-black/2 disabled:opacity-50 dark:border-white/10 dark:hover:bg-white/4"
+        className="self-start rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
       >
         {status === "sending" ? "보내는 중..." : "메시지 보내기"}
       </button>
       {status === "success" && (
         <p className="text-sm text-green-600 dark:text-green-400">
-          메시지가 전송됐습니다. 감사해요~!
+          메시지가 전송됐습니다. 빠르게 회신 드리겠습니다.!
         </p>
       )}
       {status === "error" && (
