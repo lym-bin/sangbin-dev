@@ -50,8 +50,8 @@ export default async function ProjectPage({
         gallery={project.gallery}
       />
       <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">
+        <div className="flex flex-wrap items-center gap-2">
+          <h1 className="text-pretty break-keep text-2xl font-semibold tracking-tight">
             {project.title}
           </h1>
           <span
