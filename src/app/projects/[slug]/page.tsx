@@ -104,21 +104,30 @@ export default async function ProjectPage({
       </div>
       <div className="flex flex-col gap-4">
         <h2 className="text-lg font-semibold">트러블 슈팅</h2>
-        <ul className="flex flex-col gap-6">
+        <ul className="flex flex-col gap-4">
           {project.troubleshooting.map((item) => (
-            <li key={item.title}>
+            <li
+              key={item.title}
+              className="flex flex-col gap-2 rounded-lg border border-black/10 p-4 dark:border-white/10"
+            >
               <h3 className="font-medium">{item.title}</h3>
-              <p className="mt-1 text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
-                <span className="font-semibold text-zinc-500">문제: </span>
+              <p className="text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
+                <span className="mr-1.5 rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700 dark:bg-red-950 dark:text-red-300">
+                  문제:
+                </span>
                 {item.problem}
               </p>
-              <p className="mt-1 text-pretty break-keep text-sm text-zinc-700 dark:text-zinc-300">
-                <span className="font-semibold text-zinc-500">해결 결과: </span>
+              <p className="text-pretty break-keep text-sm text-zinc-700 dark:text-zinc-300">
+                <span className="mr-1.5 rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700 dark:bg-green-950 dark:text-green-300">
+                  해결 결과:
+                </span>
                 {item.solution}
               </p>
               {item.lesson && (
-                <p className="mt-1 text-pretty break-keep text-sm text-zinc-500 dark:text-zinc-500">
-                  <span className="font-semibold">배운 점: </span>
+                <p className="text-pretty break-keep text-sm text-zinc-500 dark:text-zinc-500">
+                  <span className="mr-1.5 rounded-full bg-purple-100 px-2 py-0.5 text-xs font-semibold text-purple-700 dark:bg-purple-950 dark:text-purple-300">
+                    배운 점:
+                  </span>
                   {item.lesson}
                 </p>
               )}
