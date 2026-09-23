@@ -3,6 +3,7 @@ import { projects } from "@/data/projects";
 import TechChip from "@/components/TechChip";
 import ProjectGallery from "@/components/ProjectGallery";
 import { FaLightbulb } from "react-icons/fa";
+import ScrollHint from "@/components/ScrollHint";
 
 // generateStaticParams: 미리 이 slug들로 페이지 만들어놔(요청)
 // 빌드할 때 미리 HTML을 만들어두고 나중에 그걸 서빙함
@@ -40,6 +41,7 @@ export default async function ProjectPage({
 
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-16">
+      <ScrollHint />
       <ProjectGallery
         title={project.title}
         thumbnail={project.thumbnail}
