@@ -9,7 +9,7 @@ export default function ProjectCardWithPreview({
 }) {
   return (
     <div className="group relative">
-      <ProjectCard project={project} />
+      <ProjectCard project={project} showThumbnail={false} />
       <div
         className="pointer-events-none absolute left-full top-0 z-10 ml-4 hidden w-80 -translate-y-2
                    rounded-lg border border-black/10 bg-white p-2 opacity-0 shadow-lg transition-all

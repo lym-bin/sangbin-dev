@@ -1,10 +1,28 @@
 import Link from "next/link";
 import TechChip from "@/components/TechChip";
 import type { Project } from "@/data/projects";
+import Image from "next/image";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  showThumbnail = true,
+}: {
+  project: Project;
+  showThumbnail?: boolean;
+}) {
   return (
     <div className="group rounded-lg border border-black/10 p-5 transition-transform duration-200 hover:scale-[1.02] hover:bg-black/2 dark:border-white/10 dark:hover:bg-white/4">
+      {showThumbnail && project.thumbnail && (
+        <div className="relative mb-3 aspect-video w-full overflow-hidden rounded-md bg-zinc-100 dark:bg-zinc-900">
+          <Image
+            src={project.thumbnail}
+            alt={`${project.title} 미리보기`}
+            fill
+            unoptimized
+            className="object-cover"
+          />
+        </div>
+      )}
       <h3 className="font-medium transition-colors group-hover:text-black dark:group-hover:text-white">
         {project.title}
       </h3>
