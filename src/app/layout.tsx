@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sangbin-dev.vercel.app"),
   title: "임상빈 - Frontend Portfolio",
   description:
     "코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드 개발자 입니다.",
