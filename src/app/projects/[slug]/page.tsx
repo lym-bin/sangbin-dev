@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import TechChip from "@/components/TechChip";
 import ProjectGallery from "@/components/ProjectGallery";
+import { FaLightbulb } from "react-icons/fa";
 
 // generateStaticParams: 미리 이 slug들로 페이지 만들어놔(요청)
 // 빌드할 때 미리 HTML을 만들어두고 나중에 그걸 서빙함
@@ -58,12 +59,14 @@ export default async function ProjectPage({
         </div>
       </div>
 
-      <p className="text-pretty break-keep text-zinc-700 dark:text-zinc-300">
+      <p className="text-pretty break-keep text-lg font-medium text-zinc-800 dark:text-zinc-200">
         {project.summary}
       </p>
 
-      <div className="flex flex-col gap-2">
-        <h2 className="text-lg font-semibold">Motivation</h2>
+      <div className="flex flex-col gap-2 rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
+        <h2 className="flex items-center gap-2 text-lg font-semibold">
+          <FaLightbulb className="text-amber-500" />왜 만들었나
+        </h2>
         <p className="text-pretty break-keep text-sm text-zinc-600 dark:text-zinc-400">
           {project.motivation}
         </p>
