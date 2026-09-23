@@ -168,11 +168,29 @@ export default function Home() {
             경력
           </h3>
           <ul className="flex flex-col gap-2 text-sm">
-            <li className="flex flex-wrap items-baseline gap-2">
-              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-                2022.03 ~ 2022.08
-              </span>
-              (주) 디투엘 - Java/Spring/Nexacro 기반 차세대 SI 프로젝트 참여
+            <li className="flex flex-col gap-4">
+              <div className="flex flex-wrap items-baseline gap-2">
+                <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                  2022.03 ~ 2022.08
+                </span>
+                (주) 디투엘 - Java/Spring/Nexacro 기반 차세대 시스템 구축(To-Be)
+                프로젝트 참여
+              </div>
+              <ul className="ml-1 flex flex-col gap-1.5 list-disc break-keep list-inside text-zinc-600 dark:text-zinc-400">
+                <li>
+                  기존 JSP 기반 레거시 코드 분석을 바탕으로 신규 To-Be 시스템의
+                  비즈니스 로직 및 화면 구현 담당, DB 테이블 구조 변경 작업 참여
+                </li>
+                <li>
+                  SVN 기반 개발/운영 서버 분리 환경에서 형상관리 및 배포
+                  프로세스 경험
+                </li>
+                <li>
+                  Nexacro UI 프레임워크로 dataset 처리 및 엑셀 다운로드 연동
+                  구현, 기존 화면을 웹 인터페이스로 재구축
+                </li>
+                <li>백엔드 API와의 데이터 연동 흐름 이해 및 구현</li>
+              </ul>
             </li>
           </ul>
         </div>
