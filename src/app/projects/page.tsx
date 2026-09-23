@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Projects - 임상빈",
+  description: "임상빈의 개인 프로젝트 목록입니다.",
+};
 
 export default function ProjectsPage() {
   return (
