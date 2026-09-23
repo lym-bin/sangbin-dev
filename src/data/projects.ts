@@ -31,107 +31,6 @@ export type Project = {
 // 노션 포트폴리오 하드코딩 데이터
 export const projects: Project[] = [
   {
-    slug: "objet-b-web",
-    title: "Objet B 미니멀 쇼핑몰",
-    period: "2026.07 ~ 2026.09",
-    summary:
-      "모던 HTML/CSS로 만들었던 미니멀 쇼핑몰 프로토타입을 React + TypeScript + Firebase로 전면 재 구축한 개인 프로젝트",
-    teamType: "개인 프로젝트",
-    status: "운영 중",
-    motivation:
-      "HTML/CSS로 마크업을 하고 바닐라 JS로 정적 화면만 만들다 보니 상태 관리와 재사용성에 한계를 느껴서, 상품 목록/필터 → 상세 → 장바구니 → 주문/결제 → 로그인/마이페이지까지 이어지는 실제 쇼핑몰 플로우를 처음부터 끝까지 React + TypeScript로 직접 구현해보고 싶기도 했고 끝까지 완성된 포트폴리오를 만들어보고 싶었습니다..",
-    stack: ["React", "TypeScript", "Firebase", "Vite", "GSAP"],
-    thumbnail: "/projects/objet-b-web.gif",
-    gallery: [
-      "/projects/objet-b-web-1.png",
-      "/projects/objet-b-web-2.png",
-      "/projects/objet-b-web-3.png",
-      "/projects/objet-b-web-4.png",
-      "/projects/objet-b-web-5.png",
-    ],
-    links: {
-      demo: "https://my-react-app-lym-bin.vercel.app/",
-      github: "https://github.com/lym-bin/my-react-app",
-    },
-    features: [
-      "상품 목록 카테고리/색상/사이즈 필터링, 정렬, 더보기 페이지네이션, 검색",
-      "상품 상세 페이지 - 색상/사이즈 옵션, 사이즈 가이드, 비슷한 상품/후기 추천",
-      "장바구니 (옵션별 개별 관리, 수량 조절, 새로고침해도 유지)",
-      "배송지 등록/선택, 결제수단 선택, 주문 생성 (Firestore 저장)",
-      "이메일/비밀번호 로그인, 회원가입, 비밀번호 재설정",
-      "마이페이지 - 주문내역 조회, 최근 본 상품, 닉네임/비밀번호 수정",
-      "반응형 다크테마 UI, GSAP 스크롤 애니메이션",
-    ],
-    troubleshooting: [
-      {
-        title: "Firestore 보안 규칙이 테스트 모드로 열려있던 문제",
-        problem:
-          "배포 초반 누구나 읽기/쓰기 가능한 상태로 방치돼 있던 걸 발견함.",
-        solution:
-          "로그인한 본인 소유의 주문 데이터만 읽고 쓸 수 있도록 규칙을 다시 작성함.",
-        lesson:
-          "보안 규칙은 기본값(테스트 모드)을 배포 전에 반드시 재점검해야 한다는 걸 체감함.",
-      },
-      {
-        title:
-          "레거시 프로젝트의 TypeScript + Tailwind CSS로 마이그레이션 생 고생기",
-        problem:
-          "기존 모던 CSS, HTML 기반 쇼핑몰을 React로 전면 마이그레이션하면서 기존 CSS 선택자가 잔재하거나 빌드 중에 빌드 시스템이 문자열을 제대로 스캔하지 못해 CSS가 생성되지 않았고, 감싸는 부모와 자식의 flexbox 레이아웃도 흐트러짐.",
-        solution:
-          "전면 디버깅 후 격자를 재설정하여 해결하고, 커스텀 훅을 통한 isOpen, isClose 상태 핸들러의 props 바인딩을 재확인함.",
-        lesson:
-          "마이그레이션할 땐 레거시 코드의 잔재(선택자, 클래스명)를 끝까지 추적해서 제거해야 예상치 못한 스타일 충돌을 막을 수 있다는 걸 배움.",
-      },
-      {
-        title: "배포 후 상품 상세 페이지 새로고침 시 404",
-        problem:
-          "React Router로 클라이언트 라우팅을 하는데, vercel이 직접 요청받은 경로는 실제 파일을 찾다가 404를 반환하던 문제.",
-        solution:
-          "vercel.json에 모든 경로를 index.html로 돌려주는 rewrite 설정을 추가해 해결.",
-        lesson:
-          "SPA 클라이언트 라우팅은 호스팅 쪽 rewrite 설정과 반드시 같이 맞춰야 한다는 걸 배움.",
-      },
-      {
-        title: "계속 헤더 로고가 왼쪽으로 쏠리던 현상",
-        problem:
-          "CSS로 여러 번 중앙 정렬을 다시 잡아도 로고가 미세하게 왼쪽으로 쏠려 보이던 버그. 알고 보니 CSS 문제가 아니라 로고 SVG 안에 제작한 내장 PNG 이미지가 비대칭으로 제작되어 배치되어 있었음.",
-        solution: "이미지 대신 CSS로 로고를 새로 그려서 해결.",
-        lesson:
-          "레이아웃 버그의 원인이 항상 CSS에 있는 건 아니고, 원본 에셋 자체를 의심해봐야 할 때도 있다는 걸 배움.",
-      },
-      {
-        title: "TypeScript 패키지 누락으로 인한 오류",
-        problem:
-          "컴포넌트 파일들을 전부 .tsx 확장자로 작성하고 VS Code 내에서 타입 힌트와 자동 완성이 정상적으로 작동하여 TypeScript 기반으로 완벽히 연동되었다고 생각했지만, 디버깅을 해보니 package.json의 devDependencies에 typescript 패키지가 없고 tsconfig.json 설정파일도 누락되어 있었음.",
-        solution:
-          "필요한 개발 의존성 패키지를 설치하고 tsconfig.json을 새로 생성해 moduleResolution을 bundler로 수정함.",
-        lesson:
-          "에디터의 타입 힌트/자동완성이 되는 것과 실제 빌드 설정이 완전한 것은 다르다는 걸 배움. 툴링 상태를 눈으로도 다시 확인하는 습관이 필요함.",
-        codeBlocks: [
-          {
-            label: "터미널을 통해 필요한 개발자 의존성 패키지 설치",
-            code: "npm install -D typescript @types/react @types/react-dom",
-          },
-          {
-            label: "프로젝트 루트에 TypeScript 컴파일러 설정 파일 생성",
-            code: "npx tsc --init",
-          },
-          {
-            label: "tsconfig.json에서 모듈 해석 방식 수정",
-            code: `// tsconfig.json
-{
-  "compilerOptions": {
-    "moduleResolution": "bundler"
-  }
-}`,
-          },
-        ],
-      },
-    ],
-    review:
-      "원래는 이미지 클릭하면 모달 띄우는 정도로 시작했는데 하다 보니 장바구니, 로그인, 주문 흐름까지 다 붙이게 됐습니다. Firebase로 인증/DB 연동해보면서 실제 서비스처럼 상태 관리하는 게 생각보다 까다로웠고, 특히 옵션(색상/사이즈)별로 장바구니 아이템을 분리해서 관리하는 부분이 고민이 많았습니다.",
-  },
-  {
     slug: "pawinhand",
     title: "포인핸드 웹 사이트 리뉴얼",
     period: "2026.06 ~ 2026.08",
@@ -245,6 +144,107 @@ const [shelters, animals] = await Promise.all([
     ],
     review:
       "바닐라 JS로 실제 서비스 하나를 처음부터 끝까지 완성해보니, 프레임워크 없이도 상태 관리와 캐싱 전략을 신경 써야 한다는 걸 체감했습니다. 특히 백엔드 없이 localStorage/sessionStorage만으로 로그인과 데이터 캐시를 구현하면서, '서버가 있었다면 이렇게 하지 않았을 것'이라는 지점들을 명확히 인지하고 문서화하려고 했습니다. 공공 API의 스펙 한계를 프론트엔드에서 우회하는 경험도 많이 배웠습니다.",
+  },
+  {
+    slug: "objet-b-web",
+    title: "Objet B 미니멀 쇼핑몰",
+    period: "2026.07 ~ 2026.09",
+    summary:
+      "모던 HTML/CSS로 만들었던 미니멀 쇼핑몰 프로토타입을 React + TypeScript + Firebase로 전면 재 구축한 개인 프로젝트",
+    teamType: "개인 프로젝트",
+    status: "운영 중",
+    motivation:
+      "HTML/CSS로 마크업을 하고 바닐라 JS로 정적 화면만 만들다 보니 상태 관리와 재사용성에 한계를 느껴서, 상품 목록/필터 → 상세 → 장바구니 → 주문/결제 → 로그인/마이페이지까지 이어지는 실제 쇼핑몰 플로우를 처음부터 끝까지 React + TypeScript로 직접 구현해보고 싶기도 했고 끝까지 완성된 포트폴리오를 만들어보고 싶었습니다..",
+    stack: ["React", "TypeScript", "Firebase", "Vite", "GSAP"],
+    thumbnail: "/projects/objet-b-web.gif",
+    gallery: [
+      "/projects/objet-b-web-1.png",
+      "/projects/objet-b-web-2.png",
+      "/projects/objet-b-web-3.png",
+      "/projects/objet-b-web-4.png",
+      "/projects/objet-b-web-5.png",
+    ],
+    links: {
+      demo: "https://my-react-app-lym-bin.vercel.app/",
+      github: "https://github.com/lym-bin/my-react-app",
+    },
+    features: [
+      "상품 목록 카테고리/색상/사이즈 필터링, 정렬, 더보기 페이지네이션, 검색",
+      "상품 상세 페이지 - 색상/사이즈 옵션, 사이즈 가이드, 비슷한 상품/후기 추천",
+      "장바구니 (옵션별 개별 관리, 수량 조절, 새로고침해도 유지)",
+      "배송지 등록/선택, 결제수단 선택, 주문 생성 (Firestore 저장)",
+      "이메일/비밀번호 로그인, 회원가입, 비밀번호 재설정",
+      "마이페이지 - 주문내역 조회, 최근 본 상품, 닉네임/비밀번호 수정",
+      "반응형 다크테마 UI, GSAP 스크롤 애니메이션",
+    ],
+    troubleshooting: [
+      {
+        title: "Firestore 보안 규칙이 테스트 모드로 열려있던 문제",
+        problem:
+          "배포 초반 누구나 읽기/쓰기 가능한 상태로 방치돼 있던 걸 발견함.",
+        solution:
+          "로그인한 본인 소유의 주문 데이터만 읽고 쓸 수 있도록 규칙을 다시 작성함.",
+        lesson:
+          "보안 규칙은 기본값(테스트 모드)을 배포 전에 반드시 재점검해야 한다는 걸 체감함.",
+      },
+      {
+        title:
+          "레거시 프로젝트의 TypeScript + Tailwind CSS로 마이그레이션 생 고생기",
+        problem:
+          "기존 모던 CSS, HTML 기반 쇼핑몰을 React로 전면 마이그레이션하면서 기존 CSS 선택자가 잔재하거나 빌드 중에 빌드 시스템이 문자열을 제대로 스캔하지 못해 CSS가 생성되지 않았고, 감싸는 부모와 자식의 flexbox 레이아웃도 흐트러짐.",
+        solution:
+          "전면 디버깅 후 격자를 재설정하여 해결하고, 커스텀 훅을 통한 isOpen, isClose 상태 핸들러의 props 바인딩을 재확인함.",
+        lesson:
+          "마이그레이션할 땐 레거시 코드의 잔재(선택자, 클래스명)를 끝까지 추적해서 제거해야 예상치 못한 스타일 충돌을 막을 수 있다는 걸 배움.",
+      },
+      {
+        title: "배포 후 상품 상세 페이지 새로고침 시 404",
+        problem:
+          "React Router로 클라이언트 라우팅을 하는데, vercel이 직접 요청받은 경로는 실제 파일을 찾다가 404를 반환하던 문제.",
+        solution:
+          "vercel.json에 모든 경로를 index.html로 돌려주는 rewrite 설정을 추가해 해결.",
+        lesson:
+          "SPA 클라이언트 라우팅은 호스팅 쪽 rewrite 설정과 반드시 같이 맞춰야 한다는 걸 배움.",
+      },
+      {
+        title: "계속 헤더 로고가 왼쪽으로 쏠리던 현상",
+        problem:
+          "CSS로 여러 번 중앙 정렬을 다시 잡아도 로고가 미세하게 왼쪽으로 쏠려 보이던 버그. 알고 보니 CSS 문제가 아니라 로고 SVG 안에 제작한 내장 PNG 이미지가 비대칭으로 제작되어 배치되어 있었음.",
+        solution: "이미지 대신 CSS로 로고를 새로 그려서 해결.",
+        lesson:
+          "레이아웃 버그의 원인이 항상 CSS에 있는 건 아니고, 원본 에셋 자체를 의심해봐야 할 때도 있다는 걸 배움.",
+      },
+      {
+        title: "TypeScript 패키지 누락으로 인한 오류",
+        problem:
+          "컴포넌트 파일들을 전부 .tsx 확장자로 작성하고 VS Code 내에서 타입 힌트와 자동 완성이 정상적으로 작동하여 TypeScript 기반으로 완벽히 연동되었다고 생각했지만, 디버깅을 해보니 package.json의 devDependencies에 typescript 패키지가 없고 tsconfig.json 설정파일도 누락되어 있었음.",
+        solution:
+          "필요한 개발 의존성 패키지를 설치하고 tsconfig.json을 새로 생성해 moduleResolution을 bundler로 수정함.",
+        lesson:
+          "에디터의 타입 힌트/자동완성이 되는 것과 실제 빌드 설정이 완전한 것은 다르다는 걸 배움. 툴링 상태를 눈으로도 다시 확인하는 습관이 필요함.",
+        codeBlocks: [
+          {
+            label: "터미널을 통해 필요한 개발자 의존성 패키지 설치",
+            code: "npm install -D typescript @types/react @types/react-dom",
+          },
+          {
+            label: "프로젝트 루트에 TypeScript 컴파일러 설정 파일 생성",
+            code: "npx tsc --init",
+          },
+          {
+            label: "tsconfig.json에서 모듈 해석 방식 수정",
+            code: `// tsconfig.json
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler"
+  }
+}`,
+          },
+        ],
+      },
+    ],
+    review:
+      "원래는 이미지 클릭하면 모달 띄우는 정도로 시작했는데 하다 보니 장바구니, 로그인, 주문 흐름까지 다 붙이게 됐습니다. Firebase로 인증/DB 연동해보면서 실제 서비스처럼 상태 관리하는 게 생각보다 까다로웠고, 특히 옵션(색상/사이즈)별로 장바구니 아이템을 분리해서 관리하는 부분이 고민이 많았습니다.",
   },
   {
     slug: "ai-talk",
