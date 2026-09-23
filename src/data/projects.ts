@@ -3,6 +3,7 @@ export type Project = {
   title: string;
   period: string;
   teamType: string;
+  status: "운영 중" | "배포 중지";
   summary: string;
   motivation: string;
   stack: string[];
@@ -36,6 +37,7 @@ export const projects: Project[] = [
     summary:
       "모던 HTML/CSS로 만들었던 미니멀 쇼핑몰 프로토타입을 React + TypeScript + Firebase로 전면 재 구축한 개인 프로젝트",
     teamType: "개인 프로젝트",
+    status: "운영 중",
     motivation:
       "HTML/CSS로 마크업을 하고 바닐라 JS로 정적 화면만 만들다 보니 상태 관리와 재사용성에 한계를 느껴서, 상품 목록/필터 → 상세 → 장바구니 → 주문/결제 → 로그인/마이페이지까지 이어지는 실제 쇼핑몰 플로우를 처음부터 끝까지 React + TypeScript로 직접 구현해보고 싶기도 했고 끝까지 완성된 포트폴리오를 만들어보고 싶었습니다..",
     stack: ["React", "TypeScript", "Firebase", "Vite", "GSAP"],
@@ -134,6 +136,7 @@ export const projects: Project[] = [
     title: "포인핸드 웹 사이트 리뉴얼",
     period: "2026.06 ~ 2026.08",
     teamType: "개인 프로젝트",
+    status: "운영 중",
     summary:
       "운영중인 유기동물 입양 사이트 '포인핸드'를 리뉴얼한 개인 프로젝트",
     motivation:
@@ -248,6 +251,7 @@ const [shelters, animals] = await Promise.all([
     title: "AI Talk / 챗봇 서비스",
     period: "2026.08 ~ 2026.09",
     teamType: "개인 프로젝트",
+    status: "운영 중",
     summary:
       "사용자와 1:1로 대화하며 AI 답변이 실시간으로 스트리밍 출력되는 챗봇 웹앱",
     motivation:

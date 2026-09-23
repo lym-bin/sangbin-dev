@@ -46,9 +46,25 @@ export default async function ProjectPage({
         gallery={project.gallery}
       />
       <div className="flex flex-col gap-2">
-        <h1 className="text-2xl font-semibold tracking-tight">
-          {project.title}
-        </h1>
+        <div className="flex items-center gap-2">
+          <h1 className="text-2xl font-semibold tracking-tight">
+            {project.title}
+          </h1>
+          <span
+            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${
+              project.status === "운영 중"
+                ? "bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300"
+                : "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300"
+            }`}
+          >
+            <span
+              className={`h-1.5 w-1.5 rounded-full ${
+                project.status === "운영 중" ? "bg-green-500" : "bg-red-500"
+              }`}
+            />
+            {project.status}
+          </span>
+        </div>
         <p className="text-sm text-zinc-500">
           {project.period} · {project.teamType}
         </p>
