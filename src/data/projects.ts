@@ -40,7 +40,7 @@ export const projects: Project[] = [
       "운영중인 유기동물 입양 사이트 '포인핸드'를 리뉴얼한 개인 프로젝트",
     motivation:
       "공백기 이후 3년만에 다시 개발을 시작하였고, 기초의 중요성과 끊임 없는 학습의 중요성을 느꼈습니다. 과거 구글링과 Stack Overflow에 의존하면서 정보를 찾아가면서 개발을 했던 방식에서 벗어나, AI 에이전트를 적극 활용하며 복기하고 디버깅하고 다투기도하고 검증하면서 바닐라JS의 동작원리를 깊이 있게 학습을 하였습니다. 비동기 API통신을 주제로 삼고 뭘 만들어볼까 하다가 유기동물에 대한 관심이 컷었고 유기된 고양이를 입양 했었던 추억도 있어서 리뉴얼을 해보고 싶었습니다. ",
-    stack: ["HTML", "CSS", "VanilaJS", "Figma", "PHOTO SHOP"],
+    stack: ["HTML", "CSS", "VanillaJS", "Figma", "Photoshop"],
     thumbnail: "/projects/pawinhand.gif",
     gallery: [
       "/projects/pawinhand-1.png",
