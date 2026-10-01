@@ -356,4 +356,30 @@ const [shelters, animals] = await Promise.all([
     review:
       "짧은 기간 안에 실제 서비스처럼 동작하는 챗봇을 만들어보면서, 스트리밍 응답이나 한글 입력 같은 디테일이 생각보다 까다롭다는 걸 알게 됐습니다. AI API를 붙이는 것 자체보다, 사용자가 답변 중간에 상태를 바꾸는 예외 상황들을 다 챙기는 게 진짜 어려운 부분이라는 걸 배운 프로젝트였습니다.",
   },
+  {
+    slug: "css-layout-playground",
+    title: "CSS Layout Playground",
+    period: "2026.09 ~ 2026.10",
+    teamType: "개인 프로젝트",
+    status: "운영 중",
+    summary:
+      "Flexbox/Grid 속성을 직접 조작하며 레이아웃 변화와 결과 코드를 바로 확인할 수 있는 라이브 플레이그라운드",
+    motivation:
+      "원래는 코드나 Figma 스크린샷을 넣으면 고정 px, 이미지 비율 깨짐, div 남용 같은 레이아웃 문제를 자동으로 찾아 고쳐주는 도구를 만들려고 했는데, PostCSS·parse5·babel 같은 파서가 다 필요해지면서 범위가 너무 커졌습니다. 그래서 범위를 줄여, 파서 없이 React state만으로 스타일을 관리하는 레이아웃 플레이그라운드로 방향을 바꿨습니다.",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    links: {
+      demo: "https://css-layout-playground.vercel.app",
+      github: "https://github.com/lym-bin/css-layout-playground",
+    },
+    features: [
+      "Flexbox/Grid 모드 전환 (모드별 설정값 유지)",
+      "컨테이너 속성 조절: flex-direction/wrap, justify-content, align-items, gap 등",
+      "Grid 컬럼/행 설정: 개수 고정, auto-fill/auto-fit, 직접 입력 (CSS.supports()로 값 검증)",
+      "박스 클릭/키보드로 선택 후 개별 속성 조절 (flex-grow, grid-column/row span 등)",
+      "자주 쓰는 레이아웃 프리셋 6종 (가운데 정렬, 네비게이션 바, 반응형 카드 그리드 등)",
+      "모바일/태블릿/가득 너비 전환 + 슬라이더로 미리보기 너비 조절",
+      "미리보기와 동일한 HTML/CSS 코드 출력 및 복사",
+    ],
+    troubleshooting: [],
+  },
 ];
