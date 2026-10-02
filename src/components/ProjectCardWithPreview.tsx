@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import type { Project } from "@/data/projects";
+import { isVideo } from "@/lib/media";
 
 export default function ProjectCardWithPreview({
   project,
@@ -16,7 +17,16 @@ export default function ProjectCardWithPreview({
                    duration-200 group-hover:translate-y-0 group-hover:opacity-100
                    dark:border-white/10 dark:bg-zinc-900 md:block"
       >
-        {project.thumbnail ? (
+        {project.thumbnail && isVideo(project.thumbnail) ? (
+          <video
+            src={project.thumbnail}
+            muted
+            loop
+            playsInline
+            autoPlay
+            className="aspect-video w-full rounded object-cover"
+          />
+        ) : project.thumbnail ? (
           <Image
             src={project.thumbnail}
             alt={`${project.title} 미리보기`}

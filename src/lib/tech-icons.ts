@@ -16,6 +16,7 @@ import {
   SiGooglegemini,
   SiLinux,
   SiNextdotjs,
+  SiVitest,
 } from "react-icons/si";
 
 export const techIcons: Record<string, IconType> = {
@@ -38,6 +39,7 @@ export const techIcons: Record<string, IconType> = {
   linux: SiLinux,
   nextjs: SiNextdotjs,
   "next.js": SiNextdotjs,
+  vitest: SiVitest,
 };
 
 export const techColors: Record<string, string> = {
@@ -58,6 +60,7 @@ export const techColors: Record<string, string> = {
   "styled-components": "#DB7093",
   "gemini api": "#8E75B2",
   linux: "#FCC624",
+  vitest: "#6E9F18",
 };
 
 export function getTechIcon(name: string) {

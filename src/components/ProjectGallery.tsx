@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { isVideo } from "@/lib/media";
 
 export default function ProjectGallery({
   title,
@@ -20,13 +21,26 @@ export default function ProjectGallery({
   return (
     <div className="flex flex-col gap-2">
       <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-black/10 bg-zinc-100 dark:border-white/10 dark-bg-zinc-900 ">
-        <Image
-          src={selected}
-          alt={`${title} 미리보기`}
-          fill
-          unoptimized={selected === thumbnail}
-          className="object-contain"
-        />
+        {isVideo(selected) ? (
+          <video
+            key={selected}
+            src={selected}
+            controls
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-contain"
+          />
+        ) : (
+          <Image
+            src={selected}
+            alt={`${title} 미리보기`}
+            fill
+            unoptimized={selected === thumbnail}
+            className="object-contain"
+          />
+        )}
       </div>
 
       {images.length > 1 && (
@@ -46,13 +60,24 @@ export default function ProjectGallery({
                     : "border-transparent opacity-60 hover:opacity-100"
                 }`}
               >
-                <Image
-                  src={src}
-                  alt={`${title} 썸네일`}
-                  fill
-                  unoptimized={src === thumbnail}
-                  className="object-cover"
-                />
+                {isVideo(src) ? (
+                  <video
+                    src={src}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <Image
+                    src={src}
+                    alt={`${title} 썸네일`}
+                    fill
+                    unoptimized={src === thumbnail}
+                    className="object-cover"
+                  />
+                )}
               </button>
             ))}
           </div>

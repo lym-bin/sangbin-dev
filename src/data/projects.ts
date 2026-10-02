@@ -365,21 +365,94 @@ const [shelters, animals] = await Promise.all([
     summary:
       "Flexbox/Grid 속성을 직접 조작하며 레이아웃 변화와 결과 코드를 바로 확인할 수 있는 라이브 플레이그라운드",
     motivation:
-      "원래는 코드나 Figma 스크린샷을 넣으면 고정 px, 이미지 비율 깨짐, div 남용 같은 레이아웃 문제를 자동으로 찾아 고쳐주는 도구를 만들려고 했는데, PostCSS·parse5·babel 같은 파서가 다 필요해지면서 범위가 너무 커졌습니다. 그래서 범위를 줄여, 파서 없이 React state만으로 스타일을 관리하는 레이아웃 플레이그라운드로 방향을 바꿨습니다.",
-    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      "원래는 코드나 Figma 스크린샷을 넣으면 고정 px, 이미지 비율 깨짐, div 남용 같은 레이아웃 문제를 자동으로 찾아 고쳐주는 도구를 만들려고 했는데, PostCSS·parse5·babel 같은 파서가 다 필요해지면서 범위가 너무 커졌습니다. 그래서 범위를 줄여, 파서 없이 React state만으로 스타일을 관리하는 레이아웃 플레이그라운드로 방향을 바꿨습니다. 만들다 보니 처음 생각했던 세 가지 문제(고정 px, 이미지 비율 깨짐, div 남용)는 전부 이 플레이그라운드 안에서 다루게 됐습니다.",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vitest"],
+    thumbnail: "/projects/css-layout-playground.mp4",
+    gallery: [
+      "/projects/css-layout-playground-1.mp4",
+      "/projects/css-layout-playground-2.png",
+      "/projects/css-layout-playground-3.png",
+      "/projects/css-layout-playground-4.png",
+      "/projects/css-layout-playground-5.png",
+    ],
     links: {
       demo: "https://css-layout-playground.vercel.app",
       github: "https://github.com/lym-bin/css-layout-playground",
     },
     features: [
       "Flexbox/Grid 모드 전환 (모드별 설정값 유지)",
-      "컨테이너 속성 조절: flex-direction/wrap, justify-content, align-items, gap 등",
+      "컨테이너 속성 조절: flex-direction/wrap, justify-content, align-items, gap 등 (한글 라벨 + CSS 속성명 + 설명 동반)",
       "Grid 컬럼/행 설정: 개수 고정, auto-fill/auto-fit, 직접 입력 (CSS.supports()로 값 검증)",
       "박스 클릭/키보드로 선택 후 개별 속성 조절 (flex-grow, grid-column/row span 등)",
-      "자주 쓰는 레이아웃 프리셋 6종 (가운데 정렬, 네비게이션 바, 반응형 카드 그리드 등)",
-      "모바일/태블릿/가득 너비 전환 + 슬라이더로 미리보기 너비 조절",
-      "미리보기와 동일한 HTML/CSS 코드 출력 및 복사",
+      "자주 쓰는 레이아웃 프리셋 7종 (가운데 정렬, 네비게이션 바, 반응형 카드 그리드, 넘침 버그 재현 등)",
+      "모바일/태블릿/데스크톱 너비 전환 + 슬라이더로 미리보기 너비 조절, 주축/교차축 방향 시각화",
+      "미디어쿼리(반응형) 구간별 값 편집 및 @media 블록 자동 생성",
+      "숫자 박스 / 예시 콘텐츠 모드 전환으로 실제 내용 길이에 따른 레이아웃 차이 확인",
+      "min-width: 0 / overflow-wrap 토글로 콘텐츠 넘침 문제 비교",
+      "시맨틱 태그 지정 및 HTML 마크업 규칙 진단 (목록 구조, main 중복 등)",
+      "미리보기와 동일한 HTML/CSS 코드 출력, 문법 강조, 변경 줄 하이라이트, 복사 버튼",
     ],
-    troubleshooting: [],
+    troubleshooting: [
+      {
+        title: "박스 8개 + 콘텐츠 모드에서 화면이 멈춤",
+        problem:
+          "박스를 8개로 늘리고 콘텐츠 모드로 바꾸면 에러가 나며 화면이 멈추던 문제. 프리셋 중 카드 그리드만 8개를 다 채워놔서 프리셋만 눌러봐서는 안 보였음.",
+        solution:
+          "기본 콘텐츠 배열이 7개뿐이라 8번째 박스에서 undefined가 나던 것이 원인 — 기본 콘텐츠를 8개로 맞추고, 프리셋은 정의된 개수 뒤를 기본 콘텐츠로 채우도록 수정.",
+        lesson:
+          "손으로 적은 배열은 개수가 맞는지 타입이 확인해주지 않는다는 걸 배움. 개수가 정해진 배열은 Array.from({ length })처럼 만들거나 직접 세어봐야 함.",
+      },
+      {
+        title: "빌드는 통과하는데 출력된 HTML/CSS가 깨짐",
+        problem:
+          "tsc, lint, build가 다 통과했는데 출력 코드를 복사해서 붙여넣으면 레이아웃이 적용되지 않던 문제 (세미콜론 대신 콜론, 템플릿 리터럴 오타, 따옴표 누락 등 문자열 조합 실수).",
+        solution:
+          "코드를 만드는 순수 함수(generateCss, generateHtml)에 Vitest 테스트를 붙여 모든 프리셋 × 숫자/콘텐츠 모드 조합에 대해 선택자/중괄호/태그 짝/이스케이프 규칙을 검사하도록 함.",
+        lesson:
+          "컴파일러는 타입만 보지 의도대로인지는 모른다는 걸 배움. 문자열을 만드는 함수는 테스트가 필요한 자리이고, 버그를 고치면서 같은 실수를 막는 테스트를 같이 남기면 재발하지 않음.",
+      },
+      {
+        title: "타입을 바꿨는데 컴파일 에러가 하나도 안 남",
+        problem:
+          "Grid 열 설정을 판별 유니언 타입으로 바꾸려고 새 타입만 선언하고 tsc를 돌렸는데 에러가 하나도 안 나던 문제.",
+        solution:
+          "새 타입을 선언만 하고 실제 상태 타입은 그대로 number였던 것이 원인 — 상태 타입 자체를 새 타입으로 교체하자 고쳐야 할 곳이 에러 목록으로 나타남.",
+        lesson:
+          "구조를 바꿀 때는 타입을 먼저 바꾸면 에러 목록이 할 일 목록이 된다는 걸 배움. 다만 에러 없이 통과하는 경우도 있어서 목록만 믿으면 안 된다는 것도 함께 배움.",
+      },
+      {
+        title: "Vitest 설치 시 의존성 충돌 (ERESOLVE)",
+        problem:
+          "npm install -D vitest 실행 시 ERESOLVE 에러로 설치가 안 되던 문제. create-next-app이 @types/node를 ^20으로 설치해뒀는데 vitest 5는 22 이상을 요구했고, 실제 실행 환경은 Node 24였음.",
+        solution:
+          "--force/--legacy-peer-deps로 충돌 검사를 끄는 대신, @types/node를 실행 환경에 맞춰 올리면서 함께 설치.",
+        lesson:
+          "의존성 충돌은 옵션으로 덮지 말고 에러 메시지가 요구하는 버전을 맞춰야 한다는 걸 배움.",
+        codeBlocks: [
+          {
+            label: "타입 버전을 실행 환경(Node 24)에 맞춰 함께 설치",
+            code: "npm install -D @types/node@24 vitest",
+          },
+        ],
+      },
+      {
+        title: "미리보기에서 콘텐츠 넘침 버그가 재현되지 않음",
+        problem:
+          "띄어쓰기 없는 긴 URL로 '칸을 뚫고 나가는' 버그를 보여주려 했는데 미리보기에서는 멀쩡해 보이던 문제. 출력 CSS에는 같은 처리가 없어 실제로 쓰면 버그가 그대로 발생하는 상태였음.",
+        solution:
+          "미리보기 카드에 붙여둔 overflow-hidden과 min-w-16이 flex/grid 아이템의 기본값(min-width: auto) 버그를 우연히 가리고 있던 것이 원인 — 콘텐츠 모드 카드에서 overflow-hidden을 빼고 min-w-16은 숫자 모드에만 남겨서 브라우저 기본 동작이 그대로 보이게 수정.",
+        lesson:
+          "넘침 문제를 overflow: hidden으로 '고친' 것처럼 보여도 실제로는 글자가 잘려서 안 보이는 것뿐일 수 있다는 걸 배움. 미리보기 도구는 출력 코드와 동일하게 동작해야 의미가 있음.",
+      },
+      {
+        title: "휴대폰에서 페이지 전체가 옆으로 밀림",
+        problem:
+          "배포 사이트를 휴대폰으로 열면 페이지 전체가 화면보다 넓어져 좌우로 흔들리던 문제 (데스크톱에서는 재현 안 됨).",
+        solution:
+          "좁은 화면에서 암묵적 grid 열이 코드 출력 영역 안 긴 줄보다 작아지지 않던 것(min-width: auto)이 원인 — 페이지와 코드 출력 grid에 grid-cols-1(=minmax(0,1fr))을 줘서 열 최솟값을 0으로 만들고, 긴 줄은 내부 pre에서 스크롤되도록 수정.",
+        lesson:
+          "flex/grid 아이템이 부모를 뚫고 나가면 min-width: auto부터 의심하면 된다는 걸 배움. 아이템마다 min-w-0을 붙이는 것보다 열 자체를 minmax(0, 1fr)로 정의하는 쪽이 내용이 바뀌어도 안전함.",
+      },
+    ],
   },
 ];
