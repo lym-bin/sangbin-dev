@@ -14,6 +14,8 @@ export type Project = {
     github?: string;
     figma?: string;
     plan?: string;
+    uxResearch?: string;
+    architecture?: string;
   };
   features: string[];
   troubleshooting: {
@@ -54,6 +56,8 @@ export const projects: Project[] = [
       figma:
         "https://www.figma.com/design/3sjbtMMfkh7PhoGhbC1fd2/포인핸드-리뉴얼-와이어-프레임?node-id=0-1",
       plan: "/projects/pawinhand-plan.pdf",
+      uxResearch: "/projects/pawinhand-ux-research.pdf",
+      architecture: "/projects/pawinhand-ui-architecture.pdf",
     },
     features: [
       "히어로 배너, 지역별 추천동물 필터, 베스트 후기, 유기동물 현황 미니 대시보드",
@@ -145,7 +149,7 @@ const [shelters, animals] = await Promise.all([
       },
     ],
     review:
-      "바닐라 JS로 실제 서비스 하나를 처음부터 끝까지 완성해보니, 프레임워크 없이도 상태 관리와 캐싱 전략을 신경 써야 한다는 걸 체감했습니다. 특히 백엔드 없이 localStorage/sessionStorage만으로 로그인과 데이터 캐시를 구현하면서, '서버가 있었다면 이렇게 하지 않았을 것'이라는 지점들을 명확히 인지하고 문서화하려고 했습니다. 공공 API의 스펙 한계를 프론트엔드에서 우회하는 경험도 많이 배웠습니다.",
+      "바닐라 JS로 실제 서비스 하나를 처음부터 끝까지 완성해보니, 프레임워크 없이도 상태 관리와 캐싱 전략을 신경 써야 한다는 걸 체감했습니다. 특히 백엔드 없이 localStorage/sessionStorage만으로 로그인과 데이터 캐시를 구현하면서, '서버가 있었다면 이렇게 하지 않았을 것'이라는 지점들을 명확히 인지하고 문서화하려고 했습니다. 공공 API의 스펙 한계를 프론트엔드에서 우회하는 경험도 많이 배웠습니다. 페이지별 개발 기간과 구현 기능을 표로 정리해 진행 상황을 체크하면서 작업했는데, 이렇게 기록을 남기는 습관이 다음 프로젝트의 기획서/트러블슈팅 정리에도 그대로 이어졌습니다.",
   },
   {
     slug: "objet-b-web",

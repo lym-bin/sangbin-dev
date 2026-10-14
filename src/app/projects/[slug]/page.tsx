@@ -137,6 +137,28 @@ export default async function ProjectPage({
             기획서 PDF
           </a>
         )}
+        {project.links.uxResearch && (
+          <a
+            href={project.links.uxResearch}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+          >
+            <FaFilePdf size={14} />
+            UX 요구분석 PDF
+          </a>
+        )}
+        {project.links.architecture && (
+          <a
+            href={project.links.architecture}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+          >
+            <FaFilePdf size={14} />
+            UI 아키텍처 설계 PDF
+          </a>
+        )}
       </div>
       <div className="flex flex-col gap-2">
         <h2 className="text-lg font-semibold">주요 기능</h2>
