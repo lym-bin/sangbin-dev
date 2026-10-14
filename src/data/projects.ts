@@ -13,6 +13,7 @@ export type Project = {
     demo?: string;
     github?: string;
     figma?: string;
+    plan?: string;
   };
   features: string[];
   troubleshooting: {
@@ -33,7 +34,7 @@ export const projects: Project[] = [
   {
     slug: "pawinhand",
     title: "포인핸드 웹 사이트 리뉴얼",
-    period: "2026.06 ~ 2026.08",
+    period: "2026.06 ~ 2026.09",
     teamType: "개인 프로젝트",
     status: "운영 중",
     summary:
@@ -52,6 +53,7 @@ export const projects: Project[] = [
       github: "https://github.com/lym-bin/lym-bin.github.io",
       figma:
         "https://www.figma.com/design/3sjbtMMfkh7PhoGhbC1fd2/포인핸드-리뉴얼-와이어-프레임?node-id=0-1",
+      plan: "/projects/pawinhand-plan.pdf",
     },
     features: [
       "히어로 배너, 지역별 추천동물 필터, 베스트 후기, 유기동물 현황 미니 대시보드",

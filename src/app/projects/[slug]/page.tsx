@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import TechChip from "@/components/TechChip";
 import ProjectGallery from "@/components/ProjectGallery";
-import { FaGithub, FaLightbulb } from "react-icons/fa";
+import { FaGithub, FaLightbulb, FaFilePdf } from "react-icons/fa";
 import ScrollHint from "@/components/ScrollHint";
 import { FiExternalLink } from "react-icons/fi";
 import { SiFigma } from "react-icons/si";
@@ -124,6 +124,17 @@ export default async function ProjectPage({
           >
             <SiFigma size={14} />
             Figma
+          </a>
+        )}
+        {project.links.plan && (
+          <a
+            href={project.links.plan}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+          >
+            <FaFilePdf size={14} />
+            기획서 PDF
           </a>
         )}
       </div>
