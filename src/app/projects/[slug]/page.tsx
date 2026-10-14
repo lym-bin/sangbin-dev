@@ -98,7 +98,7 @@ export default async function ProjectPage({
             href={project.links.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+            className="inline-flex items-center gap-1.5 rounded-full border border-emerald-600 px-3 py-1.5 text-emerald-600 transition-all hover:-translate-y-0.5 hover:bg-emerald-50 hover:shadow-sm dark:border-emerald-400 dark:text-emerald-400 dark:hover:bg-emerald-950/40"
           >
             <FiExternalLink size={14} />
             Live Demo
@@ -109,7 +109,7 @@ export default async function ProjectPage({
             href={project.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+            className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 px-3 py-1.5 text-zinc-800 transition-all hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-sm dark:border-zinc-200 dark:text-zinc-200 dark:hover:bg-zinc-800"
           >
             <FaGithub size={14} />
             GitHub
@@ -120,7 +120,7 @@ export default async function ProjectPage({
             href={project.links.figma}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+            className="inline-flex items-center gap-1.5 rounded-full border border-orange-600 px-3 py-1.5 text-orange-600 transition-all hover:-translate-y-0.5 hover:bg-orange-50 hover:shadow-sm dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-950/40"
           >
             <SiFigma size={14} />
             Figma
@@ -131,7 +131,7 @@ export default async function ProjectPage({
             href={project.links.plan}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+            className="inline-flex items-center gap-1.5 rounded-full border border-red-600 px-3 py-1.5 text-red-600 transition-all hover:-translate-y-0.5 hover:bg-red-50 hover:shadow-sm dark:border-red-400 dark:text-red-400 dark:hover:bg-red-950/40"
           >
             <FaFilePdf size={14} />
             기획서 PDF
@@ -142,7 +142,7 @@ export default async function ProjectPage({
             href={project.links.uxResearch}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+            className="inline-flex items-center gap-1.5 rounded-full border border-red-600 px-3 py-1.5 text-red-600 transition-all hover:-translate-y-0.5 hover:bg-red-50 hover:shadow-sm dark:border-red-400 dark:text-red-400 dark:hover:bg-red-950/40"
           >
             <FaFilePdf size={14} />
             UX 요구분석 PDF
@@ -153,7 +153,7 @@ export default async function ProjectPage({
             href={project.links.architecture}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/15 dark:hover:bg-white/10"
+            className="inline-flex items-center gap-1.5 rounded-full border border-red-600 px-3 py-1.5 text-red-600 transition-all hover:-translate-y-0.5 hover:bg-red-50 hover:shadow-sm dark:border-red-400 dark:text-red-400 dark:hover:bg-red-950/40"
           >
             <FaFilePdf size={14} />
             UI 아키텍처 설계 PDF

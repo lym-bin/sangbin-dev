@@ -53,14 +53,14 @@ export default function ProjectCard({
             href={project.links.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/10 dark:hover:bg-white/10"
+            className="rounded-full bg-emerald-600 px-3 py-1.5 text-white transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-sm dark:bg-emerald-500 dark:hover:bg-emerald-400"
           >
             Live Demo
           </a>
         )}
         <Link
           href={`/projects/${project.slug}`}
-          className="rounded-full border border-black/10 px-3 py-1.5 transition-all hover:-translate-y-0.5 hover:bg-black/5 hover:shadow-sm dark:border-white/10 dark:hover:bg-white/10"
+          className="rounded-full border border-emerald-600 px-3 py-1.5 text-emerald-600 transition-all hover:-translate-y-0.5 hover:bg-emerald-50 hover:shadow-sm dark:border-emerald-400 dark:text-emerald-400 dark:hover:bg-emerald-950/40"
         >
           상세 보기
         </Link>
