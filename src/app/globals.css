@@ -44,6 +44,20 @@ body {
   section {
     break-inside: avoid;
   }
+  /* Projects는 카드가 늘어나면 섹션 전체가 다음 페이지로 밀려 빈 공백이 생기므로,
+     섹션 단위가 아니라 카드(li) 단위로만 분리 방지 */
+  #projects {
+    break-inside: auto;
+  }
+  #projects li {
+    break-inside: avoid;
+  }
+  #projects ul {
+    gap: 0.5rem !important;
+  }
+  #projects .group {
+    padding: 0.75rem !important;
+  }
   main {
     gap: 0.75em !important;
     padding: 0.5rem 0 !important;

@@ -47,7 +47,7 @@ export default function ProjectCard({
           <TechChip key={tech} name={tech} />
         ))}
       </div>
-      <div className="mt-3 flex gap-3 text-sm font-medium">
+      <div className="mt-3 flex gap-3 text-sm font-medium print:hidden">
         {project.links.demo && (
           <a
             href={project.links.demo}

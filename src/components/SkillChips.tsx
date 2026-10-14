@@ -21,6 +21,11 @@ const skillGroups = [
     category: "배포 및 기타, 디자인 경험",
     skills: ["Firebase", "Figma", "Git", "Vite", "Next.js"],
   },
+
+  {
+    category: "테스트",
+    skills: ["Vitest"],
+  },
 ];
 
 export default function SkillChips() {
