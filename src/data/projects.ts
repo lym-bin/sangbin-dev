@@ -161,7 +161,7 @@ const [shelters, animals] = await Promise.all([
     status: "운영 중",
     motivation:
       "HTML/CSS로 마크업을 하고 바닐라 JS로 정적 화면만 만들다 보니 상태 관리와 재사용성에 한계를 느껴서, 상품 목록/필터 → 상세 → 장바구니 → 주문/결제 → 로그인/마이페이지까지 이어지는 실제 쇼핑몰 플로우를 처음부터 끝까지 React + TypeScript로 직접 구현해보고 싶기도 했고 끝까지 완성된 포트폴리오를 만들어보고 싶었습니다..",
-    stack: ["React", "TypeScript", "Firebase", "Vite", "GSAP"],
+    stack: ["React", "TypeScript", "Firebase", "Vite", "GSAP", "Tailwind CSS"],
     thumbnail: "/projects/objet-b-web.gif",
     gallery: [
       "/projects/objet-b-web-1.png",
