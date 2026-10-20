@@ -17,6 +17,8 @@ import {
   SiLinux,
   SiNextdotjs,
   SiVitest,
+  SiReactrouter,
+  SiVercel,
 } from "react-icons/si";
 
 export const techIcons: Record<string, IconType> = {
@@ -40,6 +42,9 @@ export const techIcons: Record<string, IconType> = {
   nextjs: SiNextdotjs,
   "next.js": SiNextdotjs,
   vitest: SiVitest,
+  "react router": SiReactrouter,
+  vercel: SiVercel,
+  "vercel functions": SiVercel,
 };
 
 export const techColors: Record<string, string> = {
@@ -61,6 +66,9 @@ export const techColors: Record<string, string> = {
   "gemini api": "#8E75B2",
   linux: "#FCC624",
   vitest: "#6E9F18",
+  "react router": "#CA4245",
+  vercel: "#737373",
+  "vercel functions": "#737373",
 };
 
 export function getTechIcon(name: string) {

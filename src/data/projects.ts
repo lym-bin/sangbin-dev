@@ -154,14 +154,24 @@ const [shelters, animals] = await Promise.all([
   {
     slug: "objet-b-web",
     title: "Objet B 미니멀 쇼핑몰",
-    period: "2026.07 ~ 2026.09",
+    period: "2026.07 ~ 2026.10",
     summary:
       "모던 HTML/CSS로 만들었던 미니멀 쇼핑몰 프로토타입을 React + TypeScript + Firebase로 전면 재 구축한 개인 프로젝트",
     teamType: "개인 프로젝트",
     status: "운영 중",
     motivation:
       "HTML/CSS로 마크업을 하고 바닐라 JS로 정적 화면만 만들다 보니 상태 관리와 재사용성에 한계를 느껴서, 상품 목록/필터 → 상세 → 장바구니 → 주문/결제 → 로그인/마이페이지까지 이어지는 실제 쇼핑몰 플로우를 처음부터 끝까지 React + TypeScript로 직접 구현해보고 싶기도 했고 끝까지 완성된 포트폴리오를 만들어보고 싶었습니다..",
-    stack: ["React", "TypeScript", "Firebase", "Vite", "GSAP", "Tailwind CSS"],
+    stack: [
+      "React",
+      "TypeScript",
+      "Firebase",
+      "Vite",
+      "GSAP",
+      "Tailwind CSS",
+      "React Router",
+      "Toss Payments",
+      "Vercel Functions",
+    ],
     thumbnail: "/projects/objet-b-web.gif",
     gallery: [
       "/projects/objet-b-web-1.png",
@@ -176,12 +186,14 @@ const [shelters, animals] = await Promise.all([
     },
     features: [
       "상품 목록 카테고리/색상/사이즈 필터링, 정렬, 더보기 페이지네이션, 검색",
-      "상품 상세 페이지 - 색상/사이즈 옵션, 사이즈 가이드, 비슷한 상품/후기 추천",
-      "장바구니 (옵션별 개별 관리, 수량 조절, 새로고침해도 유지)",
-      "배송지 등록/선택, 결제수단 선택, 주문 생성 (Firestore 저장)",
+      "상품 상세 페이지 - 색상/사이즈 옵션, 사이즈 가이드, 비슷한 상품/스타일링 컷 추천",
+      "장바구니 (옵션별 개별 관리, 수량 조절, 새로고침해도 유지, 계정별 분리 저장 및 비로그인 상태에서 담은 상품 로그인 시 자동 병합)",
+      "배송지 등록/선택 (계정별 Firestore 저장)",
+      "토스페이먼츠 테스트 결제 연동 — 결제창 → 서버(Vercel 함수)에서 금액 재계산 검증 → 승인 → 주문 저장(Firestore) → 장바구니 비우기까지 전체 플로우 구현, 시크릿 키는 서버 전용으로만 사용",
       "이메일/비밀번호 로그인, 회원가입, 비밀번호 재설정",
       "마이페이지 - 주문내역 조회, 최근 본 상품, 닉네임/비밀번호 수정",
-      "반응형 다크테마 UI, GSAP 스크롤 애니메이션",
+      "브랜드 스토리 페이지 (GSAP 핀 고정 + 가로 스크롤)",
+      "첫 방문 인트로 모션, 반응형 다크테마 UI, GSAP 스크롤 애니메이션",
     ],
     troubleshooting: [
       {
@@ -248,9 +260,79 @@ const [shelters, animals] = await Promise.all([
           },
         ],
       },
+      {
+        title: "vercel dev로 띄운 로컬 서버가 백지로 나옴",
+        problem:
+          "결제 서버 함수(api/)를 같이 테스트하려고 npm run dev 대신 vercel dev로 실행하자 화면이 아무것도 그려지지 않음 (배포 사이트는 정상 동작).",
+        solution:
+          "SPA 새로고침용으로 vercel.json에 넣어둔 '모든 경로 → index.html' rewrite 규칙이 /src/main.tsx, /@vite/client 같은 개발 서버 요청까지 가로채던 것이 원인 — 규칙을 페이지 주소에만 적용되도록 정규식으로 좁혀 해결.",
+        lesson:
+          "배포 환경에서는 실제 파일이 rewrite 규칙보다 먼저 처리돼 드러나지 않던 문제가, 로컬 개발 서버 조합(vercel dev)에서만 드러날 수 있다는 걸 배움.",
+        codeBlocks: [
+          {
+            label: "SPA rewrite 규칙을 페이지 주소로만 한정",
+            code: `// vercel.json
+{ "source": "/((?!api/|@)[^.]*)", "destination": "/index.html" }`,
+          },
+        ],
+      },
+      {
+        title: "@types/node 설치해도 Cannot find name 'process'",
+        problem:
+          "서버 함수(api/)에서 process.env를 쓰는데 @types/node를 설치해도 타입 에러가 사라지지 않음.",
+        solution:
+          "TypeScript 7이 node_modules/@types를 자동으로 불러오지 않고, 루트 tsconfig.json도 src/만 포함해 api/ 폴더가 검사 대상이 아니었던 것이 원인 — api/tsconfig.json을 따로 만들어 types: [\"node\"]를 지정하고, typecheck 스크립트가 src/와 api/를 모두 검사하도록 수정.",
+        lesson:
+          "타입 패키지를 설치하는 것과 그 타입이 실제 검사 범위에 포함되는 건 다르다는 걸 배움.",
+      },
+      {
+        title: "대소문자가 다른 import, 로컬에서만 통과",
+        problem:
+          "파일명은 pendingOrder.ts인데 import는 ./PendingOrder로 되어 있었음.",
+        solution:
+          "Windows는 대소문자를 구분하지 않아 로컬에서는 동작했지만 Vercel 서버(Linux)는 구분해 빌드가 실패할 뻔함 — 타입 검사(TS1261)가 배포 전에 잡아줘서 import 경로를 실제 파일명과 맞춰 해결.",
+        lesson:
+          "OS별 파일 시스템 대소문자 구분 차이는 로컬에서 재현되지 않는 대표적인 배포 버그라는 걸 배움.",
+      },
+      {
+        title: "서버 함수가 시크릿 키를 못 읽음",
+        problem:
+          "Vercel 대시보드에 Secret 타입으로 등록한 TOSS_SECRET_KEY를 로컬 개발 환경에서 서버 함수가 읽지 못함.",
+        solution:
+          "Secret 타입 환경변수는 보안상 로컬 Development 환경으로 내려오지 않는 것이 원인 — git이 무시하는 로컬 .env에 VITE_ 접두사 없이 따로 등록해 해결(브라우저 코드에는 포함되지 않음).",
+        lesson:
+          "환경변수는 '등록했다'와 '그 환경에 실제로 내려온다'가 다를 수 있다는 걸 배움.",
+      },
+      {
+        title: "로컬은 되는데 배포한 서버 함수만 500 에러",
+        problem:
+          "vercel dev에서는 결제 승인이 잘 되는데 Vercel 미리보기 배포에서는 /api/confirm이 모든 요청에 500(FUNCTION_INVOCATION_FAILED)을 반환.",
+        solution:
+          "로그에 찍힌 ERR_MODULE_NOT_FOUND로 원인 확인 — ES 모듈(type: module) 환경의 실제 Node는 import 경로에 확장자가 없으면 파일을 찾지 못하는데, 브라우저 코드는 Vite가, 로컬은 개발 도구가 확장자를 대신 찾아줘서 드러나지 않았음 — 서버 함수가 불러오는 연쇄 import에 전부 .js 확장자를 붙여 해결 (TypeScript/Vite는 .js로 적어도 옆의 .ts 파일을 찾아줌).",
+        lesson:
+          "머지 전에 미리보기 배포로 실제 서버 환경을 먼저 확인하는 습관 덕분에 실사용자에게 나가기 전에 잡을 수 있었다는 걸 배움.",
+      },
+      {
+        title: "아이폰에서만 좌우 스크롤이 생기고 헤더가 잘려 보임",
+        problem:
+          "아이폰 13 mini에서 로그인 후 화면이 옆으로 밀리는 현상이 발생했는데, PC 브라우저의 휴대폰 모드/Safari 엔진 흉내로는 재현되지 않음.",
+        solution:
+          "iOS Safari가 16px보다 작은 입력칸을 탭하면 화면을 자동 확대하고 그대로 유지하는 동작이 원인 — 로그인/검색/배송지/프로필 입력칸을 휴대폰 폭에서는 16px, 640px 이상에서는 원래 크기로 분기 처리. 사용자의 손가락 확대까지 막는 maximum-scale=1은 사용하지 않음.",
+        lesson:
+          "에뮬레이터로 재현되지 않는 모바일 버그는 실기기 특유의 플랫폼 동작(iOS 자동 확대 등)을 의심해야 한다는 걸 배움.",
+      },
+      {
+        title: "결제창을 닫아도 실패 페이지로 가지 않음 (PC)",
+        problem:
+          "PC에서 결제창을 닫으면 실패 페이지로 이동하지 않고 그냥 멈춰 있는 것처럼 보임.",
+        solution:
+          "PC는 결제창이 페이지 위에 겹쳐 뜨는 방식이라 닫으면 주소 이동 없이 requestPayment()가 USER_CANCEL 에러로 끝나는 구조 — failUrl 이동은 휴대폰 취소/카드 거절 때만 발생한다는 걸 파악하고, USER_CANCEL은 오류 알림 대신 '결제를 취소했어요. 장바구니와 배송지는 그대로 있어요' 안내만 보여주도록 분기.",
+        lesson:
+          "결제 SDK의 에러 종류별로 실제 사용자 흐름이 다르다는 걸 알아야, 취소를 에러처럼 보여주는 실수를 막을 수 있다는 걸 배움.",
+      },
     ],
     review:
-      "원래는 이미지 클릭하면 모달 띄우는 정도로 시작했는데 하다 보니 장바구니, 로그인, 주문 흐름까지 다 붙이게 됐습니다. Firebase로 인증/DB 연동해보면서 실제 서비스처럼 상태 관리하는 게 생각보다 까다로웠고, 특히 옵션(색상/사이즈)별로 장바구니 아이템을 분리해서 관리하는 부분이 고민이 많았습니다.",
+      "원래는 이미지 클릭하면 모달 띄우는 정도로 시작했는데 하다 보니 장바구니, 로그인, 주문 흐름까지 다 붙이게 됐습니다. Firebase로 인증/DB 연동해보면서 실제 서비스처럼 상태 관리하는 게 생각보다 까다로웠고, 특히 옵션(색상/사이즈)별로 장바구니 아이템을 분리해서 관리하는 부분이 고민이 많았습니다. 배포 후에도 피드백을 받아 이미지 용량(28MB→2.8MB)을 줄이고, 계정 간 장바구니 공유 버그를 고치고, 버튼만 있던 결제를 토스페이먼츠 테스트 결제로 실제 연동하는 등 서비스를 계속 다듬어 나갔습니다.",
   },
   {
     slug: "ai-talk",
