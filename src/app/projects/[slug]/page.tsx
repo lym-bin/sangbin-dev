@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import TechChip from "@/components/TechChip";
 import ProjectGallery from "@/components/ProjectGallery";
-import { FaGithub, FaLightbulb, FaFilePdf } from "react-icons/fa";
+import { FaGithub, FaLightbulb, FaFilePdf, FaPalette } from "react-icons/fa";
 import ScrollHint from "@/components/ScrollHint";
 import { FiExternalLink } from "react-icons/fi";
 import { SiFigma } from "react-icons/si";
@@ -157,6 +157,17 @@ export default async function ProjectPage({
           >
             <FaFilePdf size={14} />
             UI 아키텍처 설계 PDF
+          </a>
+        )}
+        {project.links.styleGuide && (
+          <a
+            href={project.links.styleGuide}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-violet-600 px-3 py-1.5 text-violet-600 transition-all hover:-translate-y-0.5 hover:bg-violet-50 hover:shadow-sm dark:border-violet-400 dark:text-violet-400 dark:hover:bg-violet-950/40"
+          >
+            <FaPalette size={14} />
+            스타일가이드
           </a>
         )}
       </div>

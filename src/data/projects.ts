@@ -16,6 +16,7 @@ export type Project = {
     plan?: string;
     uxResearch?: string;
     architecture?: string;
+    styleGuide?: string;
   };
   features: string[];
   troubleshooting: {
@@ -58,6 +59,7 @@ export const projects: Project[] = [
       plan: "/projects/pawinhand-plan.pdf",
       uxResearch: "/projects/pawinhand-ux-research.pdf",
       architecture: "/projects/pawinhand-ui-architecture.pdf",
+      styleGuide: "https://lym-bin.github.io/styleguide.html",
     },
     features: [
       "히어로 배너, 지역별 추천동물 필터, 베스트 후기, 유기동물 현황 미니 대시보드",
