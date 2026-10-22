@@ -45,6 +45,9 @@ export const techIcons: Record<string, IconType> = {
   "react router": SiReactrouter,
   vercel: SiVercel,
   "vercel functions": SiVercel,
+  "vercel (functions)": SiVercel,
+  "firebase (auth, firestore)": SiFirebase,
+  "git/github": SiGit,
 };
 
 export const techColors: Record<string, string> = {
@@ -69,6 +72,9 @@ export const techColors: Record<string, string> = {
   "react router": "#CA4245",
   vercel: "#737373",
   "vercel functions": "#737373",
+  "vercel (functions)": "#737373",
+  "firebase (auth, firestore)": "#DD2C00",
+  "git/github": "#F03C2E",
 };
 
 export function getTechIcon(name: string) {

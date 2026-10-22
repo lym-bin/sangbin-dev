@@ -5,26 +5,22 @@ import gsap from "gsap";
 
 const skillGroups = [
   {
-    category: "프로젝트 사용",
+    category: "주력",
+    skills: ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Tailwind CSS"],
+  },
+
+  {
+    category: "함께 사용",
     skills: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
+      "Firebase (Auth, Firestore)",
+      "Vite",
       "GSAP",
+      "React Router",
+      "Git/GitHub",
+      "Vercel (Functions)",
+      "토스페이먼츠",
+      "Figma",
     ],
-  },
-
-  {
-    category: "배포 및 기타, 디자인 경험",
-    skills: ["Firebase", "Figma", "Git", "Vite", "Next.js"],
-  },
-
-  {
-    category: "테스트",
-    skills: ["Vitest"],
   },
 ];
 

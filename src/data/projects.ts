@@ -40,10 +40,10 @@ export const projects: Project[] = [
     teamType: "개인 프로젝트",
     status: "운영 중",
     summary:
-      "운영중인 유기동물 입양 사이트 '포인핸드'를 리뉴얼한 개인 프로젝트",
+      "유기동물 입양 사이트 '포인핸드'를 개인 학습용으로 리디자인한 개인 프로젝트",
     motivation:
       "공백기 이후 3년만에 다시 개발을 시작하였고, 기초의 중요성과 끊임 없는 학습의 중요성을 느꼈습니다. 과거 구글링과 Stack Overflow에 의존하면서 정보를 찾아가면서 개발을 했던 방식에서 벗어나, AI 에이전트를 적극 활용하며 복기하고 디버깅하고 다투기도하고 검증하면서 바닐라JS의 동작원리를 깊이 있게 학습을 하였습니다. 비동기 API통신을 주제로 삼고 뭘 만들어볼까 하다가 유기동물에 대한 관심이 컷었고 유기된 고양이를 입양 했었던 추억도 있어서 리뉴얼을 해보고 싶었습니다. ",
-    stack: ["HTML", "CSS", "VanillaJS", "Figma", "Photoshop"],
+    stack: ["HTML", "CSS", "VanillaJS", "Figma"],
     thumbnail: "/projects/pawinhand.gif",
     gallery: [
       "/projects/pawinhand-1.png",
@@ -153,7 +153,7 @@ const [shelters, animals] = await Promise.all([
   },
   {
     slug: "objet-b-web",
-    title: "Objet B 미니멀 쇼핑몰",
+    title: "Objet & B 미니멀 쇼핑몰",
     period: "2026.07 ~ 2026.10",
     summary:
       "모던 HTML/CSS로 만들었던 미니멀 쇼핑몰 프로토타입을 React + TypeScript + Firebase로 전면 재 구축한 개인 프로젝트",
@@ -333,214 +333,5 @@ const [shelters, animals] = await Promise.all([
     ],
     review:
       "원래는 이미지 클릭하면 모달 띄우는 정도로 시작했는데 하다 보니 장바구니, 로그인, 주문 흐름까지 다 붙이게 됐습니다. Firebase로 인증/DB 연동해보면서 실제 서비스처럼 상태 관리하는 게 생각보다 까다로웠고, 특히 옵션(색상/사이즈)별로 장바구니 아이템을 분리해서 관리하는 부분이 고민이 많았습니다. 배포 후에도 피드백을 받아 이미지 용량(28MB→2.8MB)을 줄이고, 계정 간 장바구니 공유 버그를 고치고, 버튼만 있던 결제를 토스페이먼츠 테스트 결제로 실제 연동하는 등 서비스를 계속 다듬어 나갔습니다.",
-  },
-  {
-    slug: "ai-talk",
-    title: "AI Talk / 챗봇 서비스",
-    period: "2026.08 ~ 2026.09",
-    teamType: "개인 프로젝트",
-    status: "운영 중",
-    summary:
-      "사용자와 1:1로 대화하며 AI 답변이 실시간으로 스트리밍 출력되는 챗봇 웹앱",
-    motivation:
-      "AI를 많이 써보다 보니 AI특유의 '환각'과 오류 정보를 어떻게 하면 없애는 걸까 호기심에 토이프로젝트로 API를 연동해 간단한 1:1 대화, 나만의 일기를 만들어 봤습니다.",
-    stack: ["React", "TypeScript", "Vite", "Gemini API", "Styled-components"],
-    thumbnail: "/projects/ai-talk.gif",
-    gallery: [
-      "/projects/ai-talk-1.png",
-      "/projects/ai-talk-2.png",
-      "/projects/ai-talk-3.png",
-    ],
-    links: {
-      demo: "https://ai-chat-app-hazel-one.vercel.app",
-      github: "https://github.com/lym-bin/ai-chat-app",
-    },
-    features: [
-      "채팅: 메시지를 보내면 답변이 실시간으로 조금씩 채워짐",
-      "이전 대화 기억: 앞에서 나눈 내용을 이어서 대화",
-      "답변 멈추기: 답변이 나오는 중에 전송 버튼이 중지 버튼으로 전환",
-      "새 대화: 헤더 버튼으로 대화를 처음부터 다시 시작",
-      "추천 질문: 대화 시작 전 칩을 누르면 바로 질문 전송",
-      "답변 서식: 굵은 글씨, 목록, 코드블록, 표 등 마크다운 렌더링",
-      "오늘의 일기 모드: 일기를 쓰면 공감과 위로, 짧은 조언을 답으로 반환",
-      "일기 저장: 일기와 답변을 날짜별로 저장, '지난 일기' 목록에서 다시 조회",
-      "대화 유지: 새로고침해도 채팅 내역 유지",
-      "오류 재시도: 답변 실패 시 같은 질문 재전송 버튼 제공",
-      "로딩 문구: 답변이 길어지면 짧은 개발자 개그 문구 노출",
-      "미니게임: 헤더 버튼으로 지렁이 게임 실행 (화면 크기에 따라 옆 패널/전체 화면)",
-      "반응형 레이아웃: 화면 크기에 맞춰 UI 배치 변경",
-    ],
-
-    troubleshooting: [
-      {
-        title: "구버전 Gemini 모델 사용 불가",
-        problem:
-          "gemini-2.5-flash 모델로 요청하면 신규 사용자에게 404 에러가 발생하던 문제.",
-        solution: "gemini-3.6-flash로 모델명을 교체해 해결.",
-        lesson:
-          "빠르게 바뀌는 AI API는 모델 버전을 하드코딩하기보다, 배포 전에 최신 지원 모델인지 항상 확인해야 한다는 걸 배움.",
-      },
-      {
-        title: "API 키 포맷 변경으로 HTTP 리퍼러 제한 불가",
-        problem:
-          "새로 발급받은 API 키가 신규 포맷(AQ...)이라 기존처럼 HTTP 리퍼러 기반으로 키 사용처를 제한할 수 없었음.",
-        solution:
-          "결제수단을 연결하지 않은 무료 등급으로 유지하고 키는 환경변수로만 관리해 노출 리스크를 낮춤.",
-        lesson:
-          "리퍼러 제한이 막히면 요금 상한 자체를 낮게 유지하는 것도 실질적인 방어책이 될 수 있다는 걸 배움.",
-      },
-      {
-        title: "한글 입력 시 메시지 이중 전송",
-        problem:
-          "한글 입력기(IME) 조합 확정용 Enter가 전송까지 발생시키던 문제.",
-        solution: "isComposing 체크를 추가해 막음.",
-        lesson:
-          "한글 입력기(IME) 조합 중 이벤트 처리는 영어 입력과 다르게 별도로 신경 써야 한다는 걸 배움.",
-      },
-      {
-        title: "스트리밍 중단 시 크래시",
-        problem:
-          "답변 생성 중 '중지'나 '새 대화'를 누르면 빈 배열에 접근해 에러가 나던 문제.",
-        solution: "루프 중단 플래그와 배열 길이 가드를 추가해 해결.",
-        lesson:
-          "비동기 스트리밍 중간에 사용자가 상태를 바꿀 수 있는 액션(중지, 새 대화)이 있다면, 그 타이밍에 대한 가드를 항상 고려해야 한다는 걸 배움.",
-      },
-      {
-        title: "무료 API 등급 요청 횟수 제한(429)",
-        problem: "테스트 중 하루 요청 횟수 제한에 걸려 429 에러가 발생.",
-        solution:
-          "429/401/404 등 상태 코드별로 사용자에게 다른 안내 메시지를 보여주도록 에러 처리를 분기함.",
-        lesson:
-          "무료 등급 API는 요청 제한에 걸리는 상황을 예외가 아니라 정상적으로 벌어지는 케이스로 놓고 UX를 설계해야 한다는 걸 배움.",
-      },
-      {
-        title: "배포 후 첫 응답 지연 체감",
-        problem:
-          "배포 환경에서 모델의 내부 thinking 단계 때문에 첫 응답이 오래 걸리는 것처럼 느껴짐.",
-        solution:
-          "thinkingBudget을 0으로 설정해 불필요한 thinking 단계를 줄이고 첫 응답 속도를 개선.",
-        lesson:
-          "체감 성능 이슈가 항상 네트워크 문제는 아니고, 모델 자체의 응답 생성 방식일 수도 있다는 걸 배움.",
-      },
-      {
-        title: "로딩 문구 로테이션 함수의 TypeScript 타입 에러",
-        problem:
-          "`let next = prev`(`string | null`)로 시작해 while문 안에서 `string`으로 재할당해도, TypeScript가 루프 이후에도 `string | null`로 좁혀주지 않아 TS2322 에러가 발생.",
-        solution:
-          "`next`를 처음부터 항상 string인 값으로 초기화하도록 수정해 해결.",
-        lesson:
-          "타입 좁히기는 조건/루프 흐름을 완벽히 추적하지 못할 때가 있어서, 초기값 자체를 보장된 타입으로 주는 게 더 안전하다는 걸 배움.",
-      },
-      {
-        title: "React Compiler ESLint 규칙(set-state-in-effect) 위반",
-        problem:
-          "로딩 문구 컴포넌트의 useEffect에서 조건이 false일 때 setState를 effect 본문 최상단에서 동기적으로 호출해 react-hooks/set-state-in-effect 에러가 발생 (에디터에는 타입 에러처럼 표시됨).",
-        solution:
-          "effect 안에서 상태를 리셋하는 대신, 렌더링 시점에 조건에 따라 아무것도 표시하지 않도록 로직을 바꿔 동기 setState 호출 자체를 없앰.",
-        lesson:
-          "React Compiler 환경에서는 effect 안 동기 setState를 렌더링 로직으로 옮겨 해결하는 패턴이 반복적으로 유효하다는 걸 배움.",
-      },
-    ],
-    review:
-      "짧은 기간 안에 실제 서비스처럼 동작하는 챗봇을 만들어보면서, 스트리밍 응답이나 한글 입력 같은 디테일이 생각보다 까다롭다는 걸 알게 됐습니다. AI API를 붙이는 것 자체보다, 사용자가 답변 중간에 상태를 바꾸는 예외 상황들을 다 챙기는 게 진짜 어려운 부분이라는 걸 배운 프로젝트였습니다.",
-  },
-  {
-    slug: "css-layout-playground",
-    title: "CSS Layout Playground",
-    period: "2026.09 ~ 2026.10",
-    teamType: "개인 프로젝트",
-    status: "운영 중",
-    summary:
-      "Flexbox/Grid 속성을 직접 조작하며 레이아웃 변화와 결과 코드를 바로 확인할 수 있는 라이브 플레이그라운드",
-    motivation:
-      "원래는 코드나 Figma 스크린샷을 넣으면 고정 px, 이미지 비율 깨짐, div 남용 같은 레이아웃 문제를 자동으로 찾아 고쳐주는 도구를 만들려고 했는데, PostCSS·parse5·babel 같은 파서가 다 필요해지면서 범위가 너무 커졌습니다. 그래서 범위를 줄여, 파서 없이 React state만으로 스타일을 관리하는 레이아웃 플레이그라운드로 방향을 바꿨습니다. 만들다 보니 처음 생각했던 세 가지 문제(고정 px, 이미지 비율 깨짐, div 남용)는 전부 이 플레이그라운드 안에서 다루게 됐습니다.",
-    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vitest"],
-    thumbnail: "/projects/css-layout-playground.mp4",
-    gallery: [
-      "/projects/css-layout-playground-1.mp4",
-      "/projects/css-layout-playground-2.png",
-      "/projects/css-layout-playground-3.png",
-      "/projects/css-layout-playground-4.png",
-      "/projects/css-layout-playground-5.png",
-    ],
-    links: {
-      demo: "https://css-layout-playground.vercel.app",
-      github: "https://github.com/lym-bin/css-layout-playground",
-    },
-    features: [
-      "Flexbox/Grid 모드 전환 (모드별 설정값 유지)",
-      "컨테이너 속성 조절: flex-direction/wrap, justify-content, align-items, gap 등 (한글 라벨 + CSS 속성명 + 설명 동반)",
-      "Grid 컬럼/행 설정: 개수 고정, auto-fill/auto-fit, 직접 입력 (CSS.supports()로 값 검증)",
-      "박스 클릭/키보드로 선택 후 개별 속성 조절 (flex-grow, grid-column/row span 등)",
-      "자주 쓰는 레이아웃 프리셋 7종 (가운데 정렬, 네비게이션 바, 반응형 카드 그리드, 넘침 버그 재현 등)",
-      "모바일/태블릿/데스크톱 너비 전환 + 슬라이더로 미리보기 너비 조절, 주축/교차축 방향 시각화",
-      "미디어쿼리(반응형) 구간별 값 편집 및 @media 블록 자동 생성",
-      "숫자 박스 / 예시 콘텐츠 모드 전환으로 실제 내용 길이에 따른 레이아웃 차이 확인",
-      "min-width: 0 / overflow-wrap 토글로 콘텐츠 넘침 문제 비교",
-      "시맨틱 태그 지정 및 HTML 마크업 규칙 진단 (목록 구조, main 중복 등)",
-      "미리보기와 동일한 HTML/CSS 코드 출력, 문법 강조, 변경 줄 하이라이트, 복사 버튼",
-    ],
-    troubleshooting: [
-      {
-        title: "박스 8개 + 콘텐츠 모드에서 화면이 멈춤",
-        problem:
-          "박스를 8개로 늘리고 콘텐츠 모드로 바꾸면 에러가 나며 화면이 멈추던 문제. 프리셋 중 카드 그리드만 8개를 다 채워놔서 프리셋만 눌러봐서는 안 보였음.",
-        solution:
-          "기본 콘텐츠 배열이 7개뿐이라 8번째 박스에서 undefined가 나던 것이 원인 — 기본 콘텐츠를 8개로 맞추고, 프리셋은 정의된 개수 뒤를 기본 콘텐츠로 채우도록 수정.",
-        lesson:
-          "손으로 적은 배열은 개수가 맞는지 타입이 확인해주지 않는다는 걸 배움. 개수가 정해진 배열은 Array.from({ length })처럼 만들거나 직접 세어봐야 함.",
-      },
-      {
-        title: "빌드는 통과하는데 출력된 HTML/CSS가 깨짐",
-        problem:
-          "tsc, lint, build가 다 통과했는데 출력 코드를 복사해서 붙여넣으면 레이아웃이 적용되지 않던 문제 (세미콜론 대신 콜론, 템플릿 리터럴 오타, 따옴표 누락 등 문자열 조합 실수).",
-        solution:
-          "코드를 만드는 순수 함수(generateCss, generateHtml)에 Vitest 테스트를 붙여 모든 프리셋 × 숫자/콘텐츠 모드 조합에 대해 선택자/중괄호/태그 짝/이스케이프 규칙을 검사하도록 함.",
-        lesson:
-          "컴파일러는 타입만 보지 의도대로인지는 모른다는 걸 배움. 문자열을 만드는 함수는 테스트가 필요한 자리이고, 버그를 고치면서 같은 실수를 막는 테스트를 같이 남기면 재발하지 않음.",
-      },
-      {
-        title: "타입을 바꿨는데 컴파일 에러가 하나도 안 남",
-        problem:
-          "Grid 열 설정을 판별 유니언 타입으로 바꾸려고 새 타입만 선언하고 tsc를 돌렸는데 에러가 하나도 안 나던 문제.",
-        solution:
-          "새 타입을 선언만 하고 실제 상태 타입은 그대로 number였던 것이 원인 — 상태 타입 자체를 새 타입으로 교체하자 고쳐야 할 곳이 에러 목록으로 나타남.",
-        lesson:
-          "구조를 바꿀 때는 타입을 먼저 바꾸면 에러 목록이 할 일 목록이 된다는 걸 배움. 다만 에러 없이 통과하는 경우도 있어서 목록만 믿으면 안 된다는 것도 함께 배움.",
-      },
-      {
-        title: "Vitest 설치 시 의존성 충돌 (ERESOLVE)",
-        problem:
-          "npm install -D vitest 실행 시 ERESOLVE 에러로 설치가 안 되던 문제. create-next-app이 @types/node를 ^20으로 설치해뒀는데 vitest 5는 22 이상을 요구했고, 실제 실행 환경은 Node 24였음.",
-        solution:
-          "--force/--legacy-peer-deps로 충돌 검사를 끄는 대신, @types/node를 실행 환경에 맞춰 올리면서 함께 설치.",
-        lesson:
-          "의존성 충돌은 옵션으로 덮지 말고 에러 메시지가 요구하는 버전을 맞춰야 한다는 걸 배움.",
-        codeBlocks: [
-          {
-            label: "타입 버전을 실행 환경(Node 24)에 맞춰 함께 설치",
-            code: "npm install -D @types/node@24 vitest",
-          },
-        ],
-      },
-      {
-        title: "미리보기에서 콘텐츠 넘침 버그가 재현되지 않음",
-        problem:
-          "띄어쓰기 없는 긴 URL로 '칸을 뚫고 나가는' 버그를 보여주려 했는데 미리보기에서는 멀쩡해 보이던 문제. 출력 CSS에는 같은 처리가 없어 실제로 쓰면 버그가 그대로 발생하는 상태였음.",
-        solution:
-          "미리보기 카드에 붙여둔 overflow-hidden과 min-w-16이 flex/grid 아이템의 기본값(min-width: auto) 버그를 우연히 가리고 있던 것이 원인 — 콘텐츠 모드 카드에서 overflow-hidden을 빼고 min-w-16은 숫자 모드에만 남겨서 브라우저 기본 동작이 그대로 보이게 수정.",
-        lesson:
-          "넘침 문제를 overflow: hidden으로 '고친' 것처럼 보여도 실제로는 글자가 잘려서 안 보이는 것뿐일 수 있다는 걸 배움. 미리보기 도구는 출력 코드와 동일하게 동작해야 의미가 있음.",
-      },
-      {
-        title: "휴대폰에서 페이지 전체가 옆으로 밀림",
-        problem:
-          "배포 사이트를 휴대폰으로 열면 페이지 전체가 화면보다 넓어져 좌우로 흔들리던 문제 (데스크톱에서는 재현 안 됨).",
-        solution:
-          "좁은 화면에서 암묵적 grid 열이 코드 출력 영역 안 긴 줄보다 작아지지 않던 것(min-width: auto)이 원인 — 페이지와 코드 출력 grid에 grid-cols-1(=minmax(0,1fr))을 줘서 열 최솟값을 0으로 만들고, 긴 줄은 내부 pre에서 스크롤되도록 수정.",
-        lesson:
-          "flex/grid 아이템이 부모를 뚫고 나가면 min-width: auto부터 의심하면 된다는 걸 배움. 아이템마다 min-w-0을 붙이는 것보다 열 자체를 minmax(0, 1fr)로 정의하는 쪽이 내용이 바뀌어도 안전함.",
-      },
-    ],
   },
 ];
