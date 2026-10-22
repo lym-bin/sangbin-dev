@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SiNotion } from "react-icons/si";
+import { SiNotion, SiVelog } from "react-icons/si";
 import {
   FaGithub,
   FaGraduationCap,
@@ -58,6 +58,13 @@ export default function Home() {
               className="rounded-full border border-black/10 p-2 text-zinc-600 transition-colors hover:bg-black/5 hover:text-zinc-950 dark:border-white/15 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-zinc-50"
             >
               <SiNotion size={30} />
+            </a>
+            <a
+              href="https://velog.io/@bin-dev/posts"
+              aria-label="Velog"
+              className="rounded-full border border-black/10 p-2 text-zinc-600 transition-colors hover:bg-black/5 hover:text-zinc-950 dark:border-white/15 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-zinc-50"
+            >
+              <SiVelog size={30} />
             </a>
             <PrintButton />
           </div>
