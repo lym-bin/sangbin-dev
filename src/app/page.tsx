@@ -171,7 +171,7 @@ export default function Home() {
             <li className="flex flex-col gap-4">
               <div className="flex flex-wrap items-baseline gap-2">
                 <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-                  2022.02 ~ 2022.08
+                  2022.03 ~ 2022.08
                 </span>
                 (주) 디투엘 - Java/Spring/Nexacro 기반 차세대 시스템 구축(To-Be)
                 프로젝트 참여
