@@ -35,7 +35,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "pawinhand",
-    title: "포인핸드 웹 사이트 리뉴얼",
+    title: "포인핸드 웹사이트 리디자인",
     period: "2026.06 ~ 2026.09",
     teamType: "개인 프로젝트",
     status: "운영 중",

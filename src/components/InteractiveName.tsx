@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { techIcons, techColors } from "@/lib/tech-icons";
 
-const keywords = ["React", "TypeScript", "Next.js", "프론트엔드 개발자"];
+const keywords = ["React", "TypeScript", "프론트엔드 개발자"];
 
 export default function InteractiveName({ name }: { name: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
