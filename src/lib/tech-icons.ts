@@ -19,6 +19,7 @@ import {
   SiVitest,
   SiReactrouter,
   SiVercel,
+  SiReactquery,
 } from "react-icons/si";
 
 export const techIcons: Record<string, IconType> = {
@@ -48,6 +49,8 @@ export const techIcons: Record<string, IconType> = {
   "vercel (functions)": SiVercel,
   "firebase (auth, firestore)": SiFirebase,
   "git/github": SiGit,
+  "react query": SiReactquery,
+  "vitest (단위 테스트)": SiVitest,
 };
 
 export const techColors: Record<string, string> = {
@@ -75,6 +78,8 @@ export const techColors: Record<string, string> = {
   "vercel (functions)": "#737373",
   "firebase (auth, firestore)": "#DD2C00",
   "git/github": "#F03C2E",
+  "react query": "#FF4154",
+  "vitest (단위 테스트)": "#6E9F18",
 };
 
 export function getTechIcon(name: string) {

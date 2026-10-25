@@ -6,7 +6,14 @@ import gsap from "gsap";
 const skillGroups = [
   {
     category: "주력",
-    skills: ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Tailwind CSS"],
+    skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
   },
 
   {
@@ -16,6 +23,8 @@ const skillGroups = [
       "Vite",
       "GSAP",
       "React Router",
+      "React Query",
+      "Vitest (단위 테스트)",
       "Git/GitHub",
       "Vercel (Functions)",
       "토스페이먼츠",

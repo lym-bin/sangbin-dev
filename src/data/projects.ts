@@ -173,6 +173,8 @@ const [shelters, animals] = await Promise.all([
       "React Router",
       "Toss Payments",
       "Vercel Functions",
+      "React Query",
+      "Vitest",
     ],
     thumbnail: "/projects/objet-b-web.gif",
     gallery: [
@@ -196,6 +198,7 @@ const [shelters, animals] = await Promise.all([
       "마이페이지 - 주문내역 조회, 최근 본 상품, 닉네임/비밀번호 수정",
       "브랜드 스토리 페이지 (GSAP 핀 고정 + 가로 스크롤)",
       "첫 방문 인트로 모션, 반응형 다크테마 UI, GSAP 스크롤 애니메이션",
+      "결제 금액 재계산 로직을 분리해 Vitest로 경계값 포함 단위 테스트 작성",
     ],
     troubleshooting: [
       {
@@ -283,7 +286,7 @@ const [shelters, animals] = await Promise.all([
         problem:
           "서버 함수(api/)에서 process.env를 쓰는데 @types/node를 설치해도 타입 에러가 사라지지 않음.",
         solution:
-          "TypeScript 7이 node_modules/@types를 자동으로 불러오지 않고, 루트 tsconfig.json도 src/만 포함해 api/ 폴더가 검사 대상이 아니었던 것이 원인 — api/tsconfig.json을 따로 만들어 types: [\"node\"]를 지정하고, typecheck 스크립트가 src/와 api/를 모두 검사하도록 수정.",
+          'TypeScript 7이 node_modules/@types를 자동으로 불러오지 않고, 루트 tsconfig.json도 src/만 포함해 api/ 폴더가 검사 대상이 아니었던 것이 원인 — api/tsconfig.json을 따로 만들어 types: ["node"]를 지정하고, typecheck 스크립트가 src/와 api/를 모두 검사하도록 수정.',
         lesson:
           "타입 패키지를 설치하는 것과 그 타입이 실제 검사 범위에 포함되는 건 다르다는 걸 배움.",
       },
