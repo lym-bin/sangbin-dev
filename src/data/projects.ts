@@ -195,7 +195,7 @@ const [shelters, animals] = await Promise.all([
       "배송지 등록/선택 (계정별 Firestore 저장)",
       "토스페이먼츠 테스트 결제 연동 — 결제창 → 서버(Vercel 함수)에서 금액 재계산 검증 → 승인 → 주문 저장(Firestore) → 장바구니 비우기까지 전체 플로우 구현, 시크릿 키는 서버 전용으로만 사용",
       "이메일/비밀번호 로그인, 회원가입, 비밀번호 재설정",
-      "마이페이지 - 주문내역 조회, 최근 본 상품, 닉네임/비밀번호 수정",
+      "마이페이지 - 주문내역 조회(React Query로 캐시, 실패 시 안내), 최근 본 상품, 닉네임/비밀번호 수정",
       "브랜드 스토리 페이지 (GSAP 핀 고정 + 가로 스크롤)",
       "첫 방문 인트로 모션, 반응형 다크테마 UI, GSAP 스크롤 애니메이션",
       "결제 금액 재계산 로직을 분리해 Vitest로 경계값 포함 단위 테스트 작성",
@@ -334,6 +334,36 @@ const [shelters, animals] = await Promise.all([
           "PC는 결제창이 페이지 위에 겹쳐 뜨는 방식이라 닫으면 주소 이동 없이 requestPayment()가 USER_CANCEL 에러로 끝나는 구조 — failUrl 이동은 휴대폰 취소/카드 거절 때만 발생한다는 걸 파악하고, USER_CANCEL은 오류 알림 대신 '결제를 취소했어요. 장바구니와 배송지는 그대로 있어요' 안내만 보여주도록 분기.",
         lesson:
           "결제 SDK의 에러 종류별로 실제 사용자 흐름이 다르다는 걸 알아야, 취소를 에러처럼 보여주는 실수를 막을 수 있다는 걸 배움.",
+      },
+      {
+        title: "결제 완료 후 뒤로 가기 시 끝난 결제창에 갇힘",
+        problem:
+          "결제 완료 페이지에서 뒤로 가기를 하면 토스 결제창이 그대로 떠 있고, 닫으면 '이미 종료된 세션입니다' 오류가 나서 탭을 닫아야만 빠져나올 수 있었음.",
+        solution:
+          "브라우저의 bfcache(뒤로/앞으로 캐시)가 결제창이 떠 있던 주문서를 그대로 얼려 뒀다가 복원한 것이 원인 — pageshow 이벤트의 persisted가 true로 찍히는 것으로 확인. 주문서에서 복원을 감지하면 새로고침해 지금의 진짜 상태(비워진 장바구니)로 다시 그림. 완료 페이지에서 뒤로 가기를 막는 방식은 기록 목록 선택·결제 실패 후 등 다른 경로를 못 막아서 고르지 않음.",
+        lesson:
+          "브라우저가 보관해 둔 옛날 상태는 결제 금액처럼 그대로 믿지 않고 다시 확인해야 한다는 걸 배움.",
+        codeBlocks: [
+          {
+            label: "bfcache에서 복원된 주문서를 감지해 새로고침",
+            code: `useEffect(() => {
+  function handlePageShow(e: PageTransitionEvent) {
+    if (e.persisted) window.location.reload();
+  }
+  window.addEventListener("pageshow", handlePageShow);
+  return () => window.removeEventListener("pageshow", handlePageShow);
+}, []);`,
+          },
+        ],
+      },
+      {
+        title: "결제창이 떠 있는 상태에서 뒤로 가기 시 이전 페이지에 결제창이 남음",
+        problem:
+          "결제창을 띄운 채 뒤로 가기를 하면 이전 페이지로 이동했는데도 토스 결제창이 화면에 남아 있었음.",
+        solution:
+          "토스 SDK가 결제창을 React 바깥(body)에 붙여서 React Router가 화면을 바꿔도 같이 사라지지 않았고, 결제창을 코드로 닫는 공식 API는 찾지 못함 — 주문서가 사라질 때(cleanup) 결제 중이었으면 맡겨 둔 주문을 지우고 안내 후 새로고침. 결제 중 여부는 useRef로 최신 값을 읽음.",
+        lesson:
+          "의존성 배열이 빈 effect의 cleanup은 첫 렌더링 때의 state 값(isSubmitting: false)을 기억하는 클로저라서, 최신 값이 필요하면 useRef로 읽어야 한다는 걸 배움.",
       },
     ],
     review:
