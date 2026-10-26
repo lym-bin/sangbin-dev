@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sangbin-dev.vercel.app"),
   title: "임상빈 - Frontend Portfolio",
   description:
-    "코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드 개발자 입니다.",
+    "코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드 개발자입니다.",
   verification: {
     google: "rowy2E6Jup89PzVluNRInWehA2MhL4nz6x-jPKUMO1k",
   },

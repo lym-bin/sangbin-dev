@@ -67,12 +67,12 @@ export default function ContactForm() {
       </button>
       {status === "success" && (
         <p className="text-sm text-green-600 dark:text-green-400">
-          메시지가 전송됐습니다. 빠르게 회신 드리겠습니다.!
+          메시지가 전송됐습니다. 빠르게 회신드리겠습니다!
         </p>
       )}
       {status === "error" && (
         <p className="text-sm text-red-600 dark:text-red-400">
-          전송에 실패했습니다..! 잠시 후 다시 시도해주세요.
+          전송에 실패했습니다. 잠시 후 다시 시도해 주세요.
         </p>
       )}
     </form>

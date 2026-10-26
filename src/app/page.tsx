@@ -36,7 +36,7 @@ export default function Home() {
           <TypingIntro />
           <p className="intro-item max-w-xl text-balance break-keep text-zinc-600 dark:text-zinc-400">
             코드 한 줄의 의미를 고민하고, 끝까지 구현해 내는 신입 프론트엔드
-            개발자 입니다.
+            개발자입니다.
           </p>
           <a
             href="mailto:persie24@naver.com"
@@ -143,7 +143,7 @@ export default function Home() {
                 2026.06 ~ 2026.11
               </span>
               [MBC 아카데미 AI활용 반응형 UI/UX 웹퍼블리셔 전문가
-              양성과정(진행중)]
+              양성과정(진행 중)]
             </li>
           </ul>
         </div>

@@ -182,7 +182,7 @@ export default async function ProjectPage({
         </ul>
       </div>
       <div className="flex flex-col gap-4">
-        <h2 className="text-lg font-semibold">트러블 슈팅</h2>
+        <h2 className="text-lg font-semibold">트러블슈팅</h2>
         <ul className="flex flex-col gap-4">
           {project.troubleshooting.map((item) => (
             <li

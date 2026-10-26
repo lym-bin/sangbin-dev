@@ -43,8 +43,8 @@ export const projects: Project[] = [
     summary:
       "유기동물 입양 사이트 '포인핸드'를 개인 학습용으로 리디자인한 개인 프로젝트",
     motivation:
-      "공백기 이후 3년만에 다시 개발을 시작하였고, 기초의 중요성과 끊임 없는 학습의 중요성을 느꼈습니다. 과거 구글링과 Stack Overflow에 의존하면서 정보를 찾아가면서 개발을 했던 방식에서 벗어나, AI 에이전트를 적극 활용하며 복기하고 디버깅하고 다투기도하고 검증하면서 바닐라JS의 동작원리를 깊이 있게 학습을 하였습니다. 비동기 API통신을 주제로 삼고 뭘 만들어볼까 하다가 유기동물에 대한 관심이 컷었고 유기된 고양이를 입양 했었던 추억도 있어서 리디자인을 해보고 싶었습니다. ",
-    stack: ["HTML", "CSS", "VanillaJS", "Figma"],
+      "공백기 이후 3년 만에 다시 개발을 시작하였고, 기초의 중요성과 끊임없는 학습의 중요성을 느꼈습니다. 과거 구글링과 Stack Overflow에 의존하면서 정보를 찾아가면서 개발을 했던 방식에서 벗어나, AI 에이전트를 적극 활용하며 복기하고 디버깅하고 다투기도 하고 검증하면서 바닐라 JS의 동작 원리를 깊이 있게 학습했습니다. 비동기 API 통신을 주제로 삼고 뭘 만들어 볼까 하다가 유기동물에 대한 관심이 컸고, 유기된 고양이를 입양했던 추억도 있어서 리디자인을 해보고 싶었습니다.",
+    stack: ["HTML", "CSS", "VanillaJS", "Figma", "Photoshop"],
     thumbnail: "/projects/pawinhand.gif",
     gallery: [
       "/projects/pawinhand-1.png",
@@ -88,7 +88,7 @@ export const projects: Project[] = [
           "이 경험을 계기로 다음 프로젝트는 React로 컴포넌트 기반 리팩토링을 하겠다는 목표로 이어짐.",
       },
       {
-        title: "반응형(Mobile/Tablet) 레이아웃 꺠짐",
+        title: "반응형(Mobile/Tablet) 레이아웃 깨짐",
         problem:
           "브라우저 크기를 줄였을 때(반응형 모드) 고정된 height 값 때문에 세로 높이는 유지된 채 이미지가 세로로 눌리거나 찌그러짐.",
         solution:
@@ -99,9 +99,9 @@ export const projects: Project[] = [
       {
         title: "공공API가 응답하지 않는 현상",
         problem:
-          "어제까지 정상적으로 API데이터들이 잘 불러와졌으나 다음날 데이터통신이 에러가 나옴 → Console에는 어떠한 오류도 안뜸 → Network 탭 확인 결과 pending 상태 무한 대기. 1차로 트래픽, 서버, 인증키 문제인 줄 알았지만 아니었음.",
+          "어제까지 정상적으로 API 데이터들이 잘 불러와졌으나 다음 날 데이터 통신에서 에러가 나옴 → Console에는 어떠한 오류도 안 뜸 → Network 탭 확인 결과 pending 상태 무한 대기. 1차로 트래픽, 서버, 인증키 문제인 줄 알았지만 아니었음.",
         solution:
-          "API 엔드포인트가 http로 되어있던 걸 https로 수정 후 해결 완료.",
+          "API 엔드포인트가 http로 되어 있던 걸 https로 수정 후 해결 완료.",
         lesson:
           "에러 메시지가 안 뜨는 네트워크 문제는 Network 탭에서 pending 상태부터 확인해야 하고, http/https 프로토콜 불일치 같은 기본적인 것도 놓치기 쉽다는 걸 배움.",
       },
@@ -158,11 +158,11 @@ const [shelters, animals] = await Promise.all([
     title: "Objet & B 미니멀 쇼핑몰",
     period: "2026.07 ~ 2026.10",
     summary:
-      "모던 HTML/CSS로 만들었던 미니멀 쇼핑몰 프로토타입을 React + TypeScript + Firebase로 전면 재 구축한 개인 프로젝트",
+      "모던 HTML/CSS로 만들었던 미니멀 쇼핑몰 프로토타입을 React + TypeScript + Firebase로 전면 재구축한 개인 프로젝트",
     teamType: "개인 프로젝트",
     status: "운영 중",
     motivation:
-      "HTML/CSS로 마크업을 하고 바닐라 JS로 정적 화면만 만들다 보니 상태 관리와 재사용성에 한계를 느껴서, 상품 목록/필터 → 상세 → 장바구니 → 주문/결제 → 로그인/마이페이지까지 이어지는 실제 쇼핑몰 플로우를 처음부터 끝까지 React + TypeScript로 직접 구현해보고 싶기도 했고 끝까지 완성된 포트폴리오를 만들어보고 싶었습니다..",
+      "HTML/CSS로 마크업을 하고 바닐라 JS로 정적 화면만 만들다 보니 상태 관리와 재사용성에 한계를 느껴서, 상품 목록/필터 → 상세 → 장바구니 → 주문/결제 → 로그인/마이페이지까지 이어지는 실제 쇼핑몰 플로우를 처음부터 끝까지 React + TypeScript로 직접 구현해보고 싶기도 했고 끝까지 완성된 포트폴리오를 만들어보고 싶었습니다.",
     stack: [
       "React",
       "TypeScript",
@@ -202,7 +202,7 @@ const [shelters, animals] = await Promise.all([
     ],
     troubleshooting: [
       {
-        title: "Firestore 보안 규칙이 테스트 모드로 열려있던 문제",
+        title: "Firestore 보안 규칙이 테스트 모드로 열려 있던 문제",
         problem:
           "배포 초반 누구나 읽기/쓰기 가능한 상태로 방치돼 있던 걸 발견함.",
         solution:
@@ -212,7 +212,7 @@ const [shelters, animals] = await Promise.all([
       },
       {
         title:
-          "레거시 프로젝트의 TypeScript + Tailwind CSS로 마이그레이션 생 고생기",
+          "레거시 프로젝트의 TypeScript + Tailwind CSS로 마이그레이션 생고생기",
         problem:
           "기존 모던 CSS, HTML 기반 쇼핑몰을 React로 전면 마이그레이션하면서 기존 CSS 선택자가 잔재하거나 빌드 중에 빌드 시스템이 문자열을 제대로 스캔하지 못해 CSS가 생성되지 않았고, 감싸는 부모와 자식의 flexbox 레이아웃도 흐트러짐.",
         solution:
@@ -240,14 +240,14 @@ const [shelters, animals] = await Promise.all([
       {
         title: "TypeScript 패키지 누락으로 인한 오류",
         problem:
-          "컴포넌트 파일들을 전부 .tsx 확장자로 작성하고 VS Code 내에서 타입 힌트와 자동 완성이 정상적으로 작동하여 TypeScript 기반으로 완벽히 연동되었다고 생각했지만, 디버깅을 해보니 package.json의 devDependencies에 typescript 패키지가 없고 tsconfig.json 설정파일도 누락되어 있었음.",
+          "컴포넌트 파일들을 전부 .tsx 확장자로 작성하고 VS Code 내에서 타입 힌트와 자동 완성이 정상적으로 작동하여 TypeScript 기반으로 완벽히 연동되었다고 생각했지만, 디버깅을 해보니 package.json의 devDependencies에 typescript 패키지가 없고 tsconfig.json 설정 파일도 누락되어 있었음.",
         solution:
           "필요한 개발 의존성 패키지를 설치하고 tsconfig.json을 새로 생성해 moduleResolution을 bundler로 수정함.",
         lesson:
           "에디터의 타입 힌트/자동완성이 되는 것과 실제 빌드 설정이 완전한 것은 다르다는 걸 배움. 툴링 상태를 눈으로도 다시 확인하는 습관이 필요함.",
         codeBlocks: [
           {
-            label: "터미널을 통해 필요한 개발자 의존성 패키지 설치",
+            label: "터미널을 통해 필요한 개발 의존성 패키지 설치",
             code: "npm install -D typescript @types/react @types/react-dom",
           },
           {

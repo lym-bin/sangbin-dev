@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="border-t border-black/10 dark:border-white/10">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-3 px-6 py-8 text-sm text-zinc-500">
         <span className="text-xs font-semibold uppercase tracking-wide text-zinc-400">
-          GitHub 컨벤션 활동
+          GitHub 기여 활동
         </span>
         <img
           src="https://ghchart.rshah.org/lym-bin"

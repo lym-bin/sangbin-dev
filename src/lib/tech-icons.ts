@@ -21,6 +21,7 @@ import {
   SiVercel,
   SiReactquery,
 } from "react-icons/si";
+import { DiPhotoshop } from "react-icons/di";
 
 export const techIcons: Record<string, IconType> = {
   react: SiReact,
@@ -51,6 +52,7 @@ export const techIcons: Record<string, IconType> = {
   "git/github": SiGit,
   "react query": SiReactquery,
   "vitest (단위 테스트)": SiVitest,
+  photoshop: DiPhotoshop,
 };
 
 export const techColors: Record<string, string> = {
@@ -80,6 +82,7 @@ export const techColors: Record<string, string> = {
   "git/github": "#F03C2E",
   "react query": "#FF4154",
   "vitest (단위 테스트)": "#6E9F18",
+  photoshop: "#31A8FF",
 };
 
 export function getTechIcon(name: string) {
