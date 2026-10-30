@@ -56,7 +56,7 @@ export const projects: Project[] = [
       github: "https://github.com/lym-bin/lym-bin.github.io",
       figma:
         "https://www.figma.com/design/3sjbtMMfkh7PhoGhbC1fd2/포인핸드-리뉴얼-와이어-프레임?node-id=0-1",
-      plan: "/projects/pawinhand-plan.pdf",
+      plan: "/projects/ui-ux-portfolio.pdf",
       uxResearch: "/projects/pawinhand-ux-research.pdf",
       architecture: "/projects/pawinhand-ui-architecture.pdf",
       styleGuide: "https://lym-bin.github.io/styleguide.html",
@@ -357,7 +357,8 @@ const [shelters, animals] = await Promise.all([
         ],
       },
       {
-        title: "결제창이 떠 있는 상태에서 뒤로 가기 시 이전 페이지에 결제창이 남음",
+        title:
+          "결제창이 떠 있는 상태에서 뒤로 가기 시 이전 페이지에 결제창이 남음",
         problem:
           "결제창을 띄운 채 뒤로 가기를 하면 이전 페이지로 이동했는데도 토스 결제창이 화면에 남아 있었음.",
         solution:
