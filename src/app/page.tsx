@@ -156,12 +156,6 @@ export default function Home() {
           <ul className="flex flex-col gap-2 text-sm">
             <li className="flex flex-wrap items-baseline gap-2">
               <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-                2013.09
-              </span>
-              MOS 파워포인트
-            </li>
-            <li className="flex flex-wrap items-baseline gap-2">
-              <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
                 2014.05
               </span>
               컴퓨터활용능력 2급
